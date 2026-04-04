@@ -1,14 +1,17 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
+import { useQuoteModal } from "@/components/context/QuoteModalContext";
 
 const Work = () => {
+  const { setOpen } = useQuoteModal();
+
   return (
     <section className="relative w-full h-[220px] md:h-[300px] flex items-center overflow-hidden font-sans">
       
-      {/* Background Image */}
-      <div 
+      {/* Background */}
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('/bg3.png')` }}
       >
@@ -19,8 +22,7 @@ const Work = () => {
       <div className="relative z-10 w-full px-6 md:px-16 lg:px-24">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
           
-          {/* Heading */}
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -29,21 +31,23 @@ const Work = () => {
             Let&apos;s work <br /> together
           </motion.h2>
 
-          {/* Buttons */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="flex items-center gap-3"
           >
-            <a href="/contact">
-              <button className="bg-white text-black px-6 py-3 rounded-full font-medium text-base hover:bg-neutral-200 transition-all cursor-pointer whitespace-nowrap min-w-[150px]">
-                Get a Quote
-              </button>
-            </a>
+            {/* ✅ GLOBAL BUTTON */}
+            <button
+              onClick={() => setOpen(true)}
+              className="cursor-pointer bg-white text-black px-6 py-3 rounded-full font-medium text-base hover:bg-neutral-200 transition-all min-w-[150px]"
+            >
+              Get a Quote
+            </button>
 
-            <a href="/services">
-              <button className="border border-white/40 text-white px-6 py-3 rounded-full font-medium text-base hover:bg-white/10 transition-all cursor-pointer whitespace-nowrap min-w-[150px]">
+            {/* ✅ CALL BUTTON */}
+            <a href="tel:+14149036781">
+              <button className="cursor-pointer border border-white/40 text-white px-6 py-3 rounded-full font-medium text-base hover:bg-white/10 min-w-[150px]">
                 Call us
               </button>
             </a>

@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Work from "@/components/home/Work";
+import { QuoteModalProvider } from "@/components/context/QuoteModalContext";
+import QuoteModal from "@/components/QuoteModal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,10 +33,13 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <QuoteModalProvider>
           <Navbar/>
         {children}
+        <QuoteModal/>
         <Work/>
           <Footer/>
+        </QuoteModalProvider>
         </body>
     </html>
   );
