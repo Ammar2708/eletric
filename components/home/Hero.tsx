@@ -1,248 +1,111 @@
-// "use client";
-
-// import React from "react";
-// import Image from "next/image";
-// import { motion } from "framer-motion";
-
-// const Hero = () => {
-//   return (
-//     <section className="relative  w-full overflow-hidden bg-[#080808] pb-15 pt-27">
-      
-//       {/* 🔥 FULL BACKGROUND IMAGE LAYER */}
-//       <div className="absolute inset-0 z-0 ">
-//         <motion.div 
-//           initial={{ scale: 1.1, opacity: 0 }}
-//           animate={{ scale: 1, opacity: 1 }}
-//           transition={{ duration: 1.5, ease: "easeOut" }}
-//           className="relative h-full w-full"
-//         >
-//           <Image
-//             src="/bg1.png" 
-//             alt="Architecture"
-//             fill
-//             priority
-//             className="object-cover object-right lg:object-center"
-//           />
-          
-//           {/* Subtle dark tint over the whole image */}
-//           <div className="absolute inset-0 bg-black/20" />
-          
-//           {/* THE CRITICAL GRADIENT: This creates the "Split" look from the video */}
-//           <div className="absolute inset-0 bg-gradient-to-r from-[#080808] via-[#080808]/80 to-transparent" />
-//         </motion.div>
-//       </div>
-
-//       {/* 🔥 CONTENT LAYER */}
-//       <div className="relative z-20 h-full w-full flex items-center">
-//         <div className="px-6 sm:px-12 md:px-24 w-full">
-          
-//           <div className="max-w-4xl relative">
-//             {/* Gold Vertical Accent Line */}
-//             <div className="absolute -left-10 top-2 w-[1.5px] h-40 bg-[#D4AF37]/60 hidden xl:block" />
-
-//             {/* Small Animated Heading */}
-//             <motion.p
-//               initial={{ opacity: 0, x: -20 }}
-//               animate={{ opacity: 1, x: 0 }}
-//               transition={{ duration: 0.8, delay: 0.2 }}
-//               className="text-[#D4AF37] text-[10px] md:text-[12px] font-bold tracking-[0.5em] uppercase mb-6"
-//             >
-//               Prime Build Works Limited
-//             </motion.p>
-
-//             {/* Main Bold Heading */}
-//             <motion.h1
-//               initial={{ opacity: 0, y: 50 }}
-//               animate={{ opacity: 1, y: 0 }}
-//               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-//               className="text-[11vw] sm:text-[9vw] lg:text-[75px] font-black text-white leading-[0.8] tracking-tighter uppercase"
-//             >
-//               Creating <br /> 
-//               <span className="inline-block">Spaces</span>
-//             </motion.h1>
-
-//             {/* Script/Serif Subheading */}
-//             <motion.p
-//               initial={{ opacity: 0 }}
-//               animate={{ opacity: 1 }}
-//               transition={{ duration: 1, delay: 0.8 }}
-//               className="font-serif italic text-4xl md:text-5xl lg:text-5xl text-white/90 mt-2 lowercase tracking-tight"
-//             >
-//               that inspire
-//             </motion.p>
-
-//             {/* Description Paragraph */}
-//             <motion.p
-//               initial={{ opacity: 0 }}
-//               animate={{ opacity: 1 }}
-//               transition={{ duration: 1, delay: 1 }}
-//               className="text-gray-400 text-sm md:text-base max-w-md mt-9 leading-relaxed font-light tracking-wide"
-//             >
-//               Delivering bespoke architectural excellence and high-end construction across the UK. 
-//               We combine structural precision with luxury craftsmanship.
-//             </motion.p>
-
-//             {/* Action Buttons */}
-//             <motion.div
-//               initial={{ opacity: 0, y: 20 }}
-//               animate={{ opacity: 1, y: 0 }}
-//               transition={{ duration: 0.8, delay: 1.2 }}
-//               className="flex  gap-5 mt-10 sm:flex"
-//             >
-//               <a href="/contact">
-//               <button className="rounded-full bg-[#D4AF37] text-black font-bold text-[11px] uppercase tracking-[0.2em] px-5 py-3 hover:bg-[#DDBB52] transition-colors duration-300 cursor-pointer md:px-10 md:py-4">
-//                 Get a Quote →
-//               </button>
-//               </a>
-//               <a href="/project">
-//               <button className="rounded-full border border-white/20 text-white font-bold text-[11px] uppercase tracking-[0.2em] px-5 py-3 md:px-10 md:py-4 hover:bg-white hover:text-black transition-all duration-300 cursor-pointer">
-//                 Our Projects
-//               </button></a>
-//             </motion.div>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Floating Bottom Indicator */}
-//       <div className="absolute left-10 bottom-10 hidden md:flex flex-col items-center gap-4 z-30">
-        
-//         <div className="w-[1px] h-16 bg-gradient-to-b from-white/20 to-transparent" />
-//       </div>
-
-//     </section>
-//   );
-// };
-
-// export default Hero;
-
 "use client";
 
-import React from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import React from 'react';
+import Link from 'next/link';
+import { PhoneCall, ArrowRight, ShieldCheck, Zap, Clock } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-[#080808] pb-20 pt-28">
-
-      {/* 🔥 BACKGROUND IMAGE */}
+    // Changed min-h-screen to min-h-[90vh] or flex-shrink to ensure it fits better on shorter laptop screens
+    <section className="relative min-h-screen lg:min-h-[850px] flex items-center pt-20 overflow-hidden bg-[#0B1221]">
+      {/* Background Decorative Elements */}
       <div className="absolute inset-0 z-0">
-        <motion.div
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="relative h-full w-full"
-        >
-          <Image
-            src="/bg1.png"
-            alt="Construction Site"
-            fill
-            priority
-            className="object-cover object-right lg:object-center"
-          />
-
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-black/30" />
-
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#080808] via-[#080808]/85 to-transparent" />
-        </motion.div>
+        <div 
+          className="absolute inset-0 opacity-10" 
+          style={{ 
+            backgroundImage: `radial-gradient(#3b82f6 1px, transparent 1px)`, 
+            backgroundSize: '40px 40px' 
+          }}
+        />
+        <div className="absolute top-1/4 -right-20 w-96 h-96 bg-[#1D4ED8]/20 blur-[120px] rounded-full" />
+        <div className="absolute bottom-1/4 -left-20 w-72 h-72 bg-blue-600/10 blur-[100px] rounded-full" />
       </div>
 
-      {/* 🔥 CONTENT */}
-      <div className="relative z-20 flex items-center w-full">
-        <div className="px-6 sm:px-12 md:px-24 w-full">
-          <div className="max-w-4xl relative">
-
-            {/* Accent Line */}
-            <div className="absolute -left-10 top-2 w-[2px] h-40 bg-[#D4AF37]/60 hidden xl:block" />
-
-            {/* Company Name */}
-            <motion.p
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-[#D4AF37] text-[10px] md:text-[12px] font-bold tracking-[0.5em] uppercase mb-4"
-            >
-              Prime Build Works Limited
-            </motion.p>
-
-            {/* Industry Tag */}
-            <div className="text-gray-500 text-xs tracking-[0.4em] mb-6">
-              INDUSTRIAL • CIVIL • INFRASTRUCTURE
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-12 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          
+          {/* Left Content */}
+          <div className="space-y-6 md:space-y-8 text-center lg:text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[#3b82f6] text-[10px] md:text-xs font-bold uppercase tracking-widest">
+              <Zap size={14} fill="currentColor" />
+              Certified Industrial Specialists
             </div>
 
-            {/* Heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="text-[12vw] sm:text-[10vw] md:text-[70px] font-black text-white leading-[0.9] tracking-tight uppercase"
-            >
-              Building <br />
-              Reliable Projects
-            </motion.h1>
+            {/* Responsive Text Sizes: text-3xl (mobile) -> text-5xl (tablet) -> text-7xl (desktop) */}
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight">
+              Rapid Response <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-blue-400">
+                Electrical Solutions
+              </span>
+            </h1>
 
-            {/* Subheading */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.6 }}
-              className="font-serif italic text-3xl md:text-4xl text-white/90 mt-3 lowercase"
-            >
-              with precision and safety
-            </motion.p>
+            {/* Adjusted max-width and text size for better readability on small screens */}
+            <p className="text-base md:text-lg text-gray-400 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+              Minimizing downtime with expert industrial and commercial electrical services. 
+              Available 24/7 for critical failures across the UK.
+            </p>
 
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.8 }}
-              className="text-gray-400 text-sm md:text-base max-w-md mt-8 leading-relaxed"
-            >
-              Delivering high-quality construction solutions with precision,
-              safety, and on-time execution across industrial, civil, and
-              infrastructure projects.
-            </motion.p>
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+              <Link 
+                href="tel:07000000000"
+                className="group relative flex items-center gap-3 bg-[#1B365D] hover:bg-[#1D4ED8] text-white px-6 md:px-8 py-4 md:py-5 font-black transition-all shadow-xl active:scale-95 w-full sm:w-auto justify-center"
+              >
+                <PhoneCall size={20} className="text-[#3b82f6] group-hover:text-white transition-colors" />
+                <span className="tracking-tighter text-base md:text-lg">EMERGENCY CALL-OUT</span>
+              </Link>
 
-            {/* Trust Signals */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-              className="flex flex-wrap gap-4 mt-6 text-xs text-gray-400"
-            >
-              <span>✔ 10+ Projects</span>
-              <span>✔ Skilled Engineers</span>
-              <span>✔ On-Time Delivery</span>
-            </motion.div>
+              <Link 
+                href="/services"
+                className="flex items-center gap-2 text-white font-bold hover:text-[#3b82f6] transition-colors px-6 py-4 group"
+              >
+                Explore Services
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
 
-            {/* Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="flex gap-4 mt-10 flex-wrap"
-            >
-              <a href="/contact">
-                <button className="rounded-full bg-[#D4AF37] text-black font-bold text-[11px] uppercase tracking-[0.2em] px-6 py-3 md:px-10 md:py-4 hover:bg-[#E5C158] transition duration-300">
-                  Get Free Quote →
-                </button>
-              </a>
-
-              <a href="/project">
-                <button className="rounded-full border border-white/20 text-white font-bold text-[11px] uppercase tracking-[0.2em] px-6 py-3 md:px-10 md:py-4 hover:bg-white hover:text-black transition duration-300">
-                  View Our Projects
-                </button>
-              </a>
-            </motion.div>
+            {/* Trust Badges - Stacked on mobile, grid on larger screens */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-white/5">
+              <div className="flex flex-row lg:flex-col items-center lg:items-start gap-3 lg:gap-1 justify-center lg:justify-start">
+                <Clock className="text-[#3b82f6] shrink-0" size={24} />
+                <div>
+                  <p className="text-white font-bold text-sm">60m Response</p>
+                  <p className="text-gray-500 text-[10px] uppercase tracking-tighter">Emergency Average</p>
+                </div>
+              </div>
+              <div className="flex flex-row lg:flex-col items-center lg:items-start gap-3 lg:gap-1 justify-center lg:justify-start">
+                <ShieldCheck className="text-[#3b82f6] shrink-0" size={24} />
+                <div>
+                  <p className="text-white font-bold text-sm">NICEIC Approved</p>
+                  <p className="text-gray-500 text-[10px] uppercase tracking-tighter">Fully Accredited</p>
+                </div>
+              </div>
+              <div className="flex flex-row lg:flex-col items-center lg:items-start gap-3 lg:gap-1 justify-center lg:justify-start">
+                <Zap className="text-[#3b82f6] shrink-0" size={24} />
+                <div>
+                  <p className="text-white font-bold text-sm">24/7 Support</p>
+                  <p className="text-gray-500 text-[10px] uppercase tracking-tighter">Round the Clock</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      {/* Bottom Indicator */}
-      <div className="absolute left-10 bottom-10 hidden md:flex flex-col items-center gap-4 z-30">
-        <div className="w-[1px] h-16 bg-gradient-to-b from-white/20 to-transparent" />
+          {/* Right Content - Visual Element */}
+          <div className="relative hidden lg:block pr-10">
+            <div className="relative z-10 bg-gradient-to-br from-[#161f32] to-[#0B1221] border border-white/10 p-2 rounded-2xl shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+              <div className="aspect-[4/5] rounded-xl overflow-hidden relative bg-[#050810]">
+                 <img src="img1.png" alt="Industrial Electrician" className="w-full h-full object-cover opacity-80" />
+                 <div className="absolute inset-0 bg-blue-600/10 mix-blend-overlay" />
+              </div>
+            </div>
+            
+            {/* Decorative Card Overlay - Adjusted position to stay within screen */}
+            <div className="absolute -bottom-6 -left-6 z-20 bg-[#1B365D] p-5 shadow-2xl border border-blue-400/20">
+              <p className="text-[#3b82f6] font-black text-2xl md:text-3xl">99.9%</p>
+              <p className="text-white text-[10px] font-bold uppercase tracking-widest">Uptime Guaranteed</p>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );

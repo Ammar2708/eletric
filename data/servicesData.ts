@@ -1,5 +1,6 @@
 import { 
-  Map, Leaf, Home, Lightbulb, PaintBucket, Hammer,  Ruler, Briefcase, Layers, PenTool
+  Map, Leaf, Home, Lightbulb, PaintBucket, Hammer,  Ruler, Briefcase, Layers, PenTool,Zap,
+  Settings2, Wind,
 } from 'lucide-react';
 
 export const SERVICES = [
@@ -135,4 +136,51 @@ export const SERVICES = [
       "High-End Finishing"
     ]
   },
+  {
+    id: 1,
+    slug: "air-conditioning",
+    title: "Air conditioning",
+    icon: Wind,
+    iconBg: "bg-[#FF4D4D]",
+    image: "/img2.png",
+    description: "High-efficiency cooling systems, VRF installations, and routine maintenance for commercial spaces.",
+    longDescription: "We provide end-to-end climate control solutions, specialized in high-performance VRF and HVAC systems designed to optimize energy efficiency and air quality in large-scale commercial environments.",
+    features: [
+      "VRF System Installation",
+      "Preventative Maintenance",
+      "Energy Efficiency Audits"
+    ]
+  },
+  {
+    id: 2,
+    slug: "heating-service",
+    title: "Heating service",
+    icon: Settings2,
+    iconBg: "bg-[#2E5BFF]",
+    image: "/img3.png",
+    description: "Industrial boiler repairs, central heating upgrades, and energy-efficient heat pump solutions.",
+    longDescription: "Our heating experts deliver robust industrial solutions ranging from complex boiler plant repairs to the integration of modern, sustainable heat pump technologies for reduced carbon footprints.",
+    features: [
+      "Industrial Boiler Repair",
+      "Heat Pump Integration",
+      "System Upgrades"
+    ]
+  },
+  {
+    id: 3,
+    slug: "electrical-panels",
+    title: "Electrical panels",
+    icon: Zap,
+    iconBg: "bg-[#4B2C82]",
+    image: "/bg1.png",
+    description: "Full distribution board upgrades, EICR testing, and custom industrial control panel wiring.",
+    longDescription: "We specialize in the core of your electrical infrastructure, providing precise distribution board upgrades and custom-wired control panels that meet strict safety compliance and performance standards.",
+    features: [
+      "EICR Testing & Certification",
+      "Custom Panel Wiring",
+      "Distribution Board Upgrades"
+    ]
+  }
+  
+  
 ];

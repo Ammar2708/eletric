@@ -1,118 +1,161 @@
 "use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { 
-  ArrowUpRight, ClipboardCheck, HardHat, 
-  Ruler, Briefcase, Layers, PenTool 
-} from 'lucide-react';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowRight, Wind, Zap, Settings2, Plus, RotateCcw } from "lucide-react";
 
 const servicesData = [
-  { id: 1, slug: "project-planning", title: "Project Planning", desc: "Strategic, end-to-end planning that integrates meticulous foresight with high-performance execution.", icon: <ClipboardCheck size={40} strokeWidth={1.2} />, mt: "lg:mt-20" },
-  { id: 2, slug: "modern-construction", title: "Modern Construction", desc: "Delivering structural excellence through advanced building techniques and premium material selection.", icon: <HardHat size={40} strokeWidth={1.2} />, mt: "lg:mt-10" },
-  { id: 3, slug: "design-strategy", title: "Design Strategy", desc: "Architectural precision tailored to your vision, blending modern aesthetics with functional elegance.", icon: <Ruler size={40} strokeWidth={1.2} />, mt: "lg:mt-0" },
-  { id: 4, slug: "project-management", title: "Project Management", desc: "Seamless coordination of resources and timelines to ensure every milestone is met with absolute precision.", icon: <Briefcase size={40} strokeWidth={1.2} />, mt: "lg:mt-20" },
-  { id: 5, slug: "custom-builds", title: "Custom Builds", desc: "Bespoke construction solutions designed to adapt to unique landscapes and specific client requirements.", icon: <Layers size={40} strokeWidth={1.2} />, mt: "lg:mt-10" },
-  { id: 6, slug: "technical-execution", title: "Technical Execution", desc: "High-performance engineering and finishing that meet the most rigorous modern industry standards.", icon: <PenTool size={40} strokeWidth={1.2} />, mt: "lg:mt-0" },
+  {
+    id: 1,
+    title: "Air conditioning",
+    slug: "air-conditioning",
+    details:
+      "High-efficiency cooling systems, VRF installations, and routine maintenance for commercial spaces.",
+    image: "/pic5.webp",
+    icon: <Wind size={24} className="text-white" />,
+    iconBg: "bg-[#FF4D4D]",
+  },
+  {
+    id: 2,
+    title: "Heating service",
+    slug: "heating-service",
+    details:
+      "Industrial boiler repairs, central heating upgrades, and energy-efficient heat pump solutions.",
+    image: "/pic6.webp",
+    icon: <Settings2 size={24} className="text-white" />,
+    iconBg: "bg-[#2E5BFF]",
+  },
+  {
+    id: 3,
+    title: "Electrical panels",
+    slug: "electrical-panels",
+    details:
+      "Full distribution board upgrades, EICR testing, and custom industrial control panel wiring.",
+    image: "/pic7.webp",
+    icon: <Zap size={24} className="text-white" />,
+    iconBg: "bg-[#4B2C82]",
+  },
 ];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.3, delayChildren: 0.2 }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 25 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
 
 const Services = () => {
   return (
-    <section className="bg-white py-10 px-5 md:px-8 lg:p-14 overflow-hidden">
-
-      {/* Header */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 mb-10 lg:mb-12">
-
-        <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight text-black">
-            A comprehensive <br /> set of services
-          </h2>
-
-          <div className="flex flex-wrap gap-3 pt-6">
-            <Link href='/contact'>
-              <button className="bg-[#D4AF37] text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-[#B8860B] transition-all">
-                GET A QUOTE
-              </button>
-            </Link>
-            <Link href='/services'>
-              <button className="border border-[#C0C0C0]/40 text-neutral-500 px-6 py-2 rounded-full font-bold text-sm hover:text-black hover:border-black transition-all">
-                Browse all services
-              </button>
-            </Link>
-          </div>
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0, x: 30 }} 
-          animate={{ opacity: 1, x: 0 }}
-          className="lg:pl-14 text-[#5D575B] text-sm md:text-base leading-relaxed"
-        >
-          <p>
-            Prime Build Work Limited offers a comprehensive, end-to-end experience by 
-            integrating strategic planning with expert technical execution. We deliver 
-            high-performance, scalable solutions tailored to the highest modern standards.
-          </p>
-        </motion.div>
-
-      </div>
-
-      {/* Services Grid */}
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-8 gap-x-6 lg:gap-x-8"
-      >
-        {servicesData.map((service) => (
-          <motion.div 
-            key={service.id}
-            variants={itemVariants}
-            className={`group border-t border-[#c0bcbc] pt-4 ${service.mt}`}
+    <section className="bg-white py-16 px-6 lg:px-14">
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            <Link href={`/services/${service.slug}`} className="block cursor-pointer">
-              
-              {/* Arrow */}
-              <div className="flex justify-end mb-4">
-                <ArrowUpRight 
-                  className="text-[#A6A2A4] group-hover:text-black group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" 
-                  size={18} 
-                />
-              </div>
-
-              {/* Icon */}
-              <div className="mb-4 text-[#292728]">
-                {service.icon}
-              </div>
-
-              {/* Title */}
-              <h3 className="text-lg lg:text-xl font-semibold text-black mb-2">
-                {service.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-[#A6A2A4] leading-relaxed text-xs lg:text-sm">
-                {service.desc}
-              </p>
-            </Link>
+            <h2 className="text-4xl md:text-6xl font-bold text-[#1a1333] mb-6">
+              Comprehensive electrical <br className="hidden md:block" /> services
+            </h2>
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: 80 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="h-1.5 bg-[#FF4D4D]"
+            />
           </motion.div>
-        ))}
-      </motion.div>
 
+          <Link href="/services">
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 bg-[#2E5BFF] text-white px-8 py-4 rounded-full font-bold shadow-lg shadow-blue-100"
+            >
+              VIEW ALL SERVICES <Plus size={20} />
+            </motion.button>
+          </Link>
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {servicesData.map((service, index) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2, duration: 0.6 }}
+              viewport={{ once: true }}
+              className="group perspective-1000 h-[550px]"
+            >
+              {/* ✅ WHOLE CARD CLICKABLE ON MOBILE */}
+              <Link
+                href={`/services/${service.slug}`}
+                className="block md:pointer-events-none h-full"
+              >
+                <div className="relative w-full h-full transition-all duration-700 preserve-3d md:group-hover:rotate-y-180 cursor-pointer md:pointer-events-auto">
+                  
+                  {/* FRONT */}
+                  <div className="absolute inset-0 backface-hidden rounded-[40px] overflow-hidden shadow-2xl">
+                    <div className="absolute inset-0">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f0a1f] via-[#1a1333]/40 to-transparent" />
+
+                    <div
+                      className={`absolute top-10 right-10 w-14 h-14 rounded-full flex items-center justify-center ${service.iconBg} shadow-xl z-20 border-4 border-white/10`}
+                    >
+                      {service.icon}
+                    </div>
+
+                    <div className="absolute bottom-12 left-10 right-10 z-20">
+                      <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                        {service.title}
+                      </h3>
+                      <div className="flex items-center gap-2 text-white/60 text-xs uppercase">
+                        <RotateCcw size={14} className="animate-spin-slow" />
+                        Hover for info
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* BACK */}
+                  <div className="absolute inset-0 backface-hidden rotate-y-180 bg-[#1a1333] rounded-[40px] flex flex-col justify-center items-center p-10 text-center shadow-2xl border-2 border-[#2E5BFF]/20">
+                    <div
+                      className={`w-20 h-20 rounded-full flex items-center justify-center ${service.iconBg} mb-8`}
+                    >
+                      {React.cloneElement(service.icon, { size: 40 })}
+                    </div>
+
+                    <h3 className="text-3xl font-bold text-white mb-4">
+                      {service.title}
+                    </h3>
+
+                    <p className="text-gray-400 text-lg mb-10">
+                      {service.details}
+                    </p>
+
+                    {/* ❌ Removed nested Link */}
+                    <div className="w-full">
+                      <button className="w-full bg-white text-[#1a1333] py-4 rounded-2xl font-black text-lg flex items-center justify-center gap-3 hover:bg-[#2E5BFF] hover:text-white transition-all">
+                        SHOW DETAILS <ArrowRight size={20} />
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 };

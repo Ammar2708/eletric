@@ -1,101 +1,86 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Trophy, 
-  Award, 
-  Lightbulb, 
-  Globe, 
-  Users,
-  Flag 
-} from 'lucide-react';
-
-const values = [
-  {
-    title: "Quality",
-    description: "An exceptional quality that can't be beaten. We merge structural precision with bespoke luxury craftsmanship.",
-    icon: <Trophy className="w-7 h-7 stroke-[1.5px]" />,
-  },
-  {
-    title: "Commitment",
-    description: "Our mission is to deliver high-quality work, ensuring every detail reflects our commitment to superior quality.",
-    icon: <Award className="w-7 h-7 stroke-[1.5px]" />,
-  },
-  {
-    title: "Innovation",
-    description: "Transforming architectural visions into permanent legacies through advanced techniques and modern materials.",
-    icon: <Lightbulb className="w-7 h-7 stroke-[1.5px]" />,
-  },
-  {
-    title: "Openness",
-    description: "Clear communication and transparent processes at every stage of the design and construction journey.",
-    icon: <Globe className="w-7 h-7 stroke-[1.5px]" />,
-  },
-  {
-    title: "Teamwork",
-    description: "Integrating strategic planning with expert execution through a collaborative, end-to-end team experience.",
-    icon: <Users className="w-7 h-7 stroke-[1.5px]" />,
-  },
-  {
-    title: "Leadership",
-    description: "Redefining the UK skyline by setting the standard for architectural excellence and structural integrity.",
-    icon: <Flag className="w-7 h-7 stroke-[1.5px]" />,
-  },
-];
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { CheckCircle2 } from "lucide-react";
 
 const Value = () => {
+  const coreValues = [
+    "Professional and excellence",
+    "Team and growth",
+    "Innovation and sustainability",
+  ];
+
   return (
-    <section className="bg-white py-14 px-6 sm:px-10 md:px-16">
-      <div className="max-w-6xl mx-auto">
-        
-        {/* Header */}
-        <div className="text-center mb-12">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-black tracking-tight"
-          >
-            The values that drive <br /> everything we do
-          </motion.h2>
-        </div>
-
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
-          {values.map((value, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-14">
+        <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-0 overflow-hidden rounded-[40px] bg-[#1a1333]">
+          
+          {/* LEFT SIDE: CONTENT (Navy Background) */}
+          <div className="lg:col-span-6 p-10 md:p-16 lg:p-20 flex flex-col justify-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="flex flex-col items-center text-center group"
+              transition={{ duration: 0.8 }}
             >
+              <h2 className="text-4xl md:text-5xl lg:text-4xl font-extrabold text-white tracking-tighter leading-[1.1] mb-8">
+                Our mission: creating lasting impact through quality and care
+              </h2>
               
-              {/* Icon */}
-              <div className="text-black mb-4 transition-transform duration-500 group-hover:scale-110">
-                {value.icon}
-              </div>
-
-              {/* Title */}
-              <h3 className="text-lg md:text-xl font-bold text-black mb-3 uppercase tracking-wide">
-                {value.title}
-              </h3>
-
-              {/* Divider */}
-              <div className="w-full h-[1px] bg-gray-300 mb-4" />
-
-              {/* Description */}
-              <p className="text-gray-500 text-xs md:text-sm leading-relaxed max-w-[240px]">
-                {value.description}
+              <p className="text-white/70 text-lg font-light leading-relaxed mb-10 max-w-lg">
+                At Emergency Electrical, our mission is to deliver exceptional 
+                electrical services that create a lasting impact for our clients 
+                and communities.
               </p>
 
+              {/* Checkmark List */}
+              <ul className="space-y-5">
+                {coreValues.map((value, index) => (
+                  <motion.li 
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 + 0.5 }}
+                    className="flex items-center gap-4 group"
+                  >
+                    <div className="text-white group-hover:text-[#2E5BFF] transition-colors">
+                      <CheckCircle2 size={24} strokeWidth={2.5} />
+                    </div>
+                    <span className="text-white text-lg font-medium tracking-wide">
+                      {value}
+                    </span>
+                  </motion.li>
+                ))}
+              </ul>
             </motion.div>
-          ))}
-        </div>
+          </div>
 
+          {/* RIGHT SIDE: IMAGE */}
+          <div className="lg:col-span-6 relative h-[400px] lg:h-auto min-h-[500px]">
+            <motion.div
+              initial={{ opacity: 0, scale: 1.1 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2 }}
+              className="absolute inset-0 p-4 lg:p-8"
+            >
+              <div className="relative w-full h-full rounded-[30px] overflow-hidden shadow-2xl">
+                <Image
+                  src="/pic9.webp" // Replace with your high-voltage worker image
+                  alt="Electricians working on utility pole"
+                  fill
+                  className="object-cover"
+                />
+                {/* Subtle overlay to match the brand depth */}
+                <div className="absolute inset-0 bg-[#1a1333]/10 mix-blend-multiply" />
+              </div>
+            </motion.div>
+          </div>
+
+        </div>
       </div>
     </section>
   );
