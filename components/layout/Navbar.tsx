@@ -122,10 +122,10 @@ const Navbar = () => {
           <div className="flex-shrink-0 flex items-center">
             <Link 
               href="/" 
-              className="block relative w-44 h-32 md:w-84 md:h-48 transition-transform duration-200 hover:scale-105 active:scale-95"
+              className="block relative w-44 h-32 md:w-64 md:h-48 transition-transform duration-200 hover:scale-105 active:scale-95"
             >
               <Image
-                src="/logo.png" 
+                src="/logo3.png" 
                 alt="Emergency Electrical Solution Logo"
                 fill
                 className="object-contain"
