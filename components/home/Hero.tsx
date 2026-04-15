@@ -32,7 +32,7 @@ const Hero = () => {
             </div>
 
             {/* Responsive Text Sizes: text-3xl (mobile) -> text-5xl (tablet) -> text-7xl (desktop) */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-5xl font-black text-white leading-[1.1] tracking-tight">
               Rapid Response <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-blue-400">
                 Electrical Solutions
