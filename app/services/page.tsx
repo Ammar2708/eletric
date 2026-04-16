@@ -8,12 +8,12 @@ import { SERVICES } from '@/data/servicesData';
 import { motion, AnimatePresence, Transition, Variants } from "framer-motion";
 
 /**
- * 1. Typing this as Transition is the first step.
- * We use 'as const' or explicit casting for the ease array to satisfy the compiler.
+ * FIXED: By using 'as const', we tell TypeScript this is a 
+ * fixed tuple of 4 numbers, matching the Cubic Bezier requirement.
  */
 const premiumSlow: Transition = {
   duration: 1.2,
-  ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+  ease: [0.16, 1, 0.3, 1] as const,
 };
 
 const containerVariants: Variants = {
@@ -39,7 +39,9 @@ export default function ServicesPage() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
@@ -94,7 +96,7 @@ export default function ServicesPage() {
           <AnimatePresence mode="popLayout">
             {filteredServices.map((service) => (
               <motion.div key={service.slug} variants={cardVariants} layout>
-                <ServiceCard service={service} isMobile={isMobile} />
+                <ServiceCard service={service} />
               </motion.div>
             ))}
           </AnimatePresence>
@@ -104,7 +106,7 @@ export default function ServicesPage() {
   );
 }
 
-function ServiceCard({ service, isMobile }: { service: any; isMobile: boolean }) {
+function ServiceCard({ service }: { service: any }) {
   const [flipped, setFlipped] = useState(false);
 
   return (
@@ -120,7 +122,8 @@ function ServiceCard({ service, isMobile }: { service: any; isMobile: boolean })
           <motion.div 
             className="relative w-full h-full"
             animate={{ scale: flipped ? 1.1 : 1 }}
-            transition={{ duration: 3, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
+            // FIXED: Added 'as const' here too to prevent build errors
+            transition={{ duration: 3, ease: [0.16, 1, 0.3, 1] as const }}
           >
             <Image 
               src={service.image} 
