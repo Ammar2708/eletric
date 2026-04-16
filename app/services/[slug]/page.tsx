@@ -1,5 +1,6 @@
 'use client'
 
+import { use } from 'react'
 import { notFound } from 'next/navigation'
 import { SERVICES } from '@/data/servicesData'
 import Link from 'next/link'
@@ -12,16 +13,19 @@ import {
   Clock, 
   Hammer 
 } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion, Transition, Variants } from 'framer-motion'
 import Image from 'next/image'
 
-// Custom high-end easing for a smoother, slightly slower feel
-const smoothTransit = {
+/**
+ * 1. Explicitly typing the transition fixes the 
+ * "Type 'number[]' is not assignable to type 'Easing'" error.
+ */
+const smoothTransit: Transition = {
   duration: 1.1,
-  ease: [0.22, 1, 0.36, 1], // Custom cubic-bezier for a "premium" deceleration
+  ease: [0.22, 1, 0.36, 1], 
 };
 
-const fadeUpVariant = {
+const fadeUpVariant: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { 
     opacity: 1, 
@@ -30,12 +34,16 @@ const fadeUpVariant = {
   }
 };
 
-export default async function ServiceDetail({ 
+export default function ServiceDetail({ 
   params 
 }: { 
   params: Promise<{ slug: string }> 
 }) {
-  const { slug } = await params
+  /**
+   * 2. In Next.js 15 'use client' components, 
+   * we use 'use(params)' instead of 'await params'.
+   */
+  const { slug } = use(params)
   const service = SERVICES.find((s) => s.slug === slug)
 
   if (!service) return notFound()
@@ -82,7 +90,7 @@ export default async function ServiceDetail({
               </p>
             </motion.section>
 
-            {/* Main Visual - Slightly Slower Scale-in */}
+            {/* Main Visual */}
             <motion.div
               variants={{
                 hidden: { opacity: 0, scale: 1.05 },
@@ -104,7 +112,7 @@ export default async function ServiceDetail({
               </div>
             </motion.div>
 
-            {/* Detailed Info - Staggered entrance */}
+            {/* Detailed Info */}
             <motion.section 
               variants={fadeUpVariant}
               className="grid md:grid-cols-2 gap-12"
