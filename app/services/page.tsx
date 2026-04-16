@@ -8,12 +8,12 @@ import { SERVICES } from '@/data/servicesData';
 import { motion, AnimatePresence, Transition, Variants } from "framer-motion";
 
 /**
- * Explicitly typing the transition fixes the 
- * "Type 'number[]' is not assignable to type 'Easing'" error.
+ * 1. Typing this as Transition is the first step.
+ * We use 'as const' or explicit casting for the ease array to satisfy the compiler.
  */
 const premiumSlow: Transition = {
   duration: 1.2,
-  ease: [0.16, 1, 0.3, 1],
+  ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
 };
 
 const containerVariants: Variants = {
@@ -120,7 +120,7 @@ function ServiceCard({ service, isMobile }: { service: any; isMobile: boolean })
           <motion.div 
             className="relative w-full h-full"
             animate={{ scale: flipped ? 1.1 : 1 }}
-            transition={{ duration: 3, ease: [0.16, 1, 0.3, 1] as any }}
+            transition={{ duration: 3, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
           >
             <Image 
               src={service.image} 
