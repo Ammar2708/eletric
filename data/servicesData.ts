@@ -18,7 +18,7 @@ export const SERVICES = [
     slug: "exterior-design",
     title: "Exterior Design", 
     icon: Leaf,
-    image: "/img2.png",
+    image: "/pic3.webp",
     description: "Modern exterior solutions blending aesthetics with durability.",
     longDescription: "We design stunning exteriors that merge architectural elegance with environmental harmony. Every material, finish, and structure is selected to elevate both performance and visual appeal.",
     features: ["Facade Engineering", "Landscape Integration", "Material Selection"]
@@ -142,7 +142,7 @@ export const SERVICES = [
     title: "Air conditioning",
     icon: Wind,
     iconBg: "bg-[#FF4D4D]",
-    image: "/img2.png",
+    image: "/pic5.webp",
     description: "High-efficiency cooling systems, VRF installations, and routine maintenance for commercial spaces.",
     longDescription: "We provide end-to-end climate control solutions, specialized in high-performance VRF and HVAC systems designed to optimize energy efficiency and air quality in large-scale commercial environments.",
     features: [
