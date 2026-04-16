@@ -5,14 +5,18 @@ import Link from "next/link";
 import Image from "next/image";
 import { Search, ArrowRight, Clock, Shield } from "lucide-react";
 import { SERVICES } from '@/data/servicesData';
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Transition, Variants } from "framer-motion";
 
-const premiumSlow = {
+/**
+ * Explicitly typing the transition fixes the 
+ * "Type 'number[]' is not assignable to type 'Easing'" error.
+ */
+const premiumSlow: Transition = {
   duration: 1.2,
   ease: [0.16, 1, 0.3, 1],
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -20,7 +24,7 @@ const containerVariants = {
   },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 20, scale: 0.98 },
   visible: { 
     opacity: 1, 
@@ -116,7 +120,7 @@ function ServiceCard({ service, isMobile }: { service: any; isMobile: boolean })
           <motion.div 
             className="relative w-full h-full"
             animate={{ scale: flipped ? 1.1 : 1 }}
-            transition={{ duration: 3, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 3, ease: [0.16, 1, 0.3, 1] as any }}
           >
             <Image 
               src={service.image} 
