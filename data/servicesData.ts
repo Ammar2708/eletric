@@ -1,186 +1,418 @@
-import { 
-  Map, Leaf, Home, Lightbulb, PaintBucket, Hammer,  Ruler, Briefcase, Layers, PenTool,Zap,
-  Settings2, Wind,
-} from 'lucide-react';
+import {
+  Construction,
+  Settings,
+  Lightbulb,
+  Home,
+  Droplets,
+  Plug,
+  FileCheck,
+  Car,
+  Camera,
+  Thermometer,
+  Waves,
+  PhoneCall,
+  Zap,
+  Fan,
+  Power,
+  AlertTriangle,
+  PanelTop,
+  Lamp,
+  Siren,
+  ToggleLeft,
+  ClipboardCheck,
+  ShieldAlert,
+  WashingMachine,
+  ShowerHead,
+  PlugZap,
+  Wrench,
+  Flame,
+  Lock,
+} from "lucide-react";
 
 export const SERVICES = [
-  { 
-    slug: "project-planning",
-    title: "Project Planning", 
-    icon: Map,
-    image: "/pic1.webp",
-    description: "Strategic planning ensures every detail is defined before execution.",
-    longDescription: "Our project planning process establishes a strong foundation for success. We analyze site conditions, define scope, optimize resources, and ensure every phase is aligned with your vision and long-term goals.",
-    features: ["Site Analysis", "Feasibility Studies", "Resource Allocation"]
-  },
-
-  { 
-    slug: "exterior-design",
-    title: "Exterior Design", 
-    icon: Leaf,
-    image: "/pic3.webp",
-    description: "Modern exterior solutions blending aesthetics with durability.",
-    longDescription: "We design stunning exteriors that merge architectural elegance with environmental harmony. Every material, finish, and structure is selected to elevate both performance and visual appeal.",
-    features: ["Facade Engineering", "Landscape Integration", "Material Selection"]
-  },
-
-  { 
-    slug: "general-contracting",
-    title: "General Contracting", 
-    icon: Home,
-    image: "/pic2.webp",
-    description: "End-to-end construction management with precision.",
-    longDescription: "We oversee every stage of construction, ensuring seamless coordination, strict quality control, and timely delivery. Our expertise guarantees a smooth and efficient building process.",
-    features: ["Safety Management", "Subcontractor Oversight", "Permit Acquisition"]
-  },
-
-  { 
-    slug: "modern-construction",
-    title: "Modern Construction", 
-    icon: Home,
-    image: "/pic3.webp",
-    description: "Innovative construction techniques for modern structures.",
-    longDescription: "Our modern construction solutions integrate advanced technologies, sustainable materials, and efficient workflows to deliver cutting-edge structures built for the future.",
-    features: ["Smart Techniques", "Efficient Execution", "Premium Finishing"]
-  },
-
-  { 
-    slug: "electrical-service",
-    title: "Electrical Service", 
-    icon: Lightbulb,
-    image: "/pic4.webp",
-    description: "Reliable electrical systems tailored for safety and performance.",
-    longDescription: "We provide professional electrical installations and maintenance services, ensuring safety, efficiency, and long-term reliability across residential and commercial projects.",
-    features: ["Wiring Solutions", "Lighting Systems", "Maintenance"]
-  },
-
-  { 
-    slug: "painting",
-    title: "Painting", 
-    icon: PaintBucket,
-    image: "/pic5.webp",
-    description: "Premium finishes that elevate your space.",
-    longDescription: "Our painting services deliver flawless finishes using high-quality materials and expert craftsmanship, enhancing both interior and exterior surfaces.",
-    features: ["Interior Painting", "Exterior Coating", "Surface Preparation"]
-  },
-
-  { 
-    slug: "carpentry",
-    title: "Carpentry", 
-    icon: Hammer,
-    image: "/pic6.webp",
-    description: "Custom woodwork crafted with precision.",
-    longDescription: "We design and build custom carpentry solutions that combine durability with refined craftsmanship, tailored to meet your exact needs.",
-    features: ["Custom Furniture", "Wood Finishing", "Structural Work"]
-  },
-  {
-    slug: "design-strategy",
-    title: "Design Strategy",
-    icon: Ruler,
-    image: "/pic7.webp",
-    description:
-      "Architectural precision tailored to your vision, blending modern aesthetics with functional elegance.",
-    longDescription:
-      "Our design strategy focuses on transforming ideas into structured, functional, and visually compelling architectural concepts. We align creativity with practicality to ensure every project meets both aesthetic and performance goals.",
-    features: [
-      "Concept Development",
-      "Spatial Planning",
-      "Design Optimization"
-    ]
-  },
-
-  {
-    slug: "project-management",
-    title: "Project Management",
-    icon: Briefcase,
-    image: "/pic8.webp",
-    description:
-      "Seamless coordination of resources and timelines to ensure every milestone is met with absolute precision.",
-    longDescription:
-      "We manage every aspect of your project lifecycle, ensuring efficient coordination between teams, strict adherence to timelines, and consistent quality control from start to completion.",
-    features: [
-      "Timeline Planning",
-      "Team Coordination",
-      "Quality Assurance"
-    ]
-  },
-
-  {
-    slug: "custom-builds",
-    title: "Custom Builds",
-    icon: Layers,
-    image: "/pic9.webp",
-    description:
-      "Bespoke construction solutions designed to adapt to unique landscapes and specific client requirements.",
-    longDescription:
-      "Our custom builds are tailored to meet unique project demands, combining innovative construction techniques with personalized design to create one-of-a-kind structures.",
-    features: [
-      "Tailored Construction",
-      "Material Flexibility",
-      "Unique Design Execution"
-    ]
-  },
-
-  {
-    slug: "technical-execution",
-    title: "Technical Execution",
-    icon: PenTool,
-    image: "/pic10.webp",
-    description:
-      "High-performance engineering and finishing that meet the most rigorous modern industry standards.",
-    longDescription:
-      "We deliver precise technical execution through advanced engineering practices and meticulous attention to detail, ensuring durability, performance, and premium finishing.",
-    features: [
-      "Engineering Precision",
-      "Advanced Techniques",
-      "High-End Finishing"
-    ]
-  },
   {
     id: 1,
-    slug: "air-conditioning",
-    title: "Air conditioning",
-    icon: Wind,
-    iconBg: "bg-[#FF4D4D]",
-    image: "/pic5.webp",
-    description: "High-efficiency cooling systems, VRF installations, and routine maintenance for commercial spaces.",
-    longDescription: "We provide end-to-end climate control solutions, specialized in high-performance VRF and HVAC systems designed to optimize energy efficiency and air quality in large-scale commercial environments.",
-    features: [
-      "VRF System Installation",
-      "Preventative Maintenance",
-      "Energy Efficiency Audits"
-    ]
+    title: "Electrical Installations",
+    slug: "electrical-installations",
+    icon: Construction,
+    image: "/pic1.png",
+    description: "New circuits, sockets and lighting installation.",
+    longDescription:
+      "Precision-engineered electrical installations for modern residential and high-demand commercial environments. We handle everything from complete consumer unit upgrades to dedicated circuits for high-load appliances like EV chargers or electric showers. Our process involves a rigorous load-calculation to ensure your new system is future-proofed and fully compliant with 18th Edition Wiring Regulations. We prioritize clean, efficient installs that minimize structural disruption while maximizing electrical efficiency and safety.",
+    features: ["NICEIC / Part P Compliant", "18th Edition Wiring", "Load-Calculations"],
   },
   {
     id: 2,
-    slug: "heating-service",
-    title: "Heating service",
-    icon: Settings2,
-    iconBg: "bg-[#2E5BFF]",
-    image: "/img3.png",
-    description: "Industrial boiler repairs, central heating upgrades, and energy-efficient heat pump solutions.",
-    longDescription: "Our heating experts deliver robust industrial solutions ranging from complex boiler plant repairs to the integration of modern, sustainable heat pump technologies for reduced carbon footprints.",
-    features: [
-      "Industrial Boiler Repair",
-      "Heat Pump Integration",
-      "System Upgrades"
-    ]
+    title: "RCD Tripping",
+    slug: "rcd-tripping",
+    icon: Plug,
+    image: "/et6.webp",
+    description: "Fast diagnosis and repair for frequently tripping RCD circuits.",
+    longDescription:
+      "If your RCD keeps tripping, it usually means there is a fault in your electrical system such as a damaged appliance, faulty wiring, or moisture in circuits. Our qualified electricians quickly diagnose the cause of RCD tripping using professional testing equipment. We identify the faulty circuit or appliance and safely resolve the issue, restoring power and ensuring your electrical system remains fully protected against shocks and electrical fires.",
+    features: ["Fault Diagnosis", "Moisture Detection", "Shock Protection"],
   },
   {
     id: 3,
-    slug: "electrical-panels",
-    title: "Electrical panels",
+    title: "Electrical Repair & Fault Finding",
+    slug: "electrical-repair-fault-finding",
+    icon: Wrench,
+    image: "/et9.webp",
+    description: "Diagnosing and fixing electrical faults quickly and safely.",
+    longDescription:
+      "Our electricians specialize in identifying and repairing electrical issues such as power outages, tripping circuits, faulty wiring, and malfunctioning switches or sockets. Using professional diagnostic tools, we locate faults efficiently and carry out safe, compliant repairs to restore reliable power throughout your property.",
+    features: ["Minor Works Certified", "Diagnostic Tools", "Circuit Repair"],
+  },
+  {
+    id: 4,
+    title: "Power Socket Solutions",
+    slug: "sockets",
+    icon: Plug,
+    image: "/et2.webp",
+    description: "Install additional power sockets.",
+    longDescription:
+      "Eliminate the risk of electrical fires caused by overloaded extension leads and 'daisy-chaining.' We provide strategic power-point placement, installing high-specification sockets including integrated USB-C charging ports and heavy-duty 13A outlets for kitchens and workshops. Whether you require flush-mounted finishes for a luxury home or galvanized steel trunking for industrial durability, our installations ensure a balanced load across your ring main to prevent localized overheating and circuit tripping.",
+    features: ["Load-Balanced Installation", "USB-C Integrated Ports", "Industrial Trunking"],
+  },
+  {
+    id: 5,
+    title: "Full Property Rewiring",
+    slug: "full-rewiring",
+    icon: Home,
+    image: "/et4.webp",
+    description: "Upgrade outdated wiring systems.",
+    longDescription:
+      "A complete electrical 'heart transplant' for your property. Aging vulcanized rubber or lead-sheathed cables are significant fire risks and cannot handle the load of modern smart appliances. Our full rewiring service replaces all outdated infrastructure with high-grade, fire-retardant cabling and modern RCD-protected consumer units. This not only guarantees the safety of the occupants but also provides the necessary certification to increase your property's market value and pass rigorous home buyer surveys.",
+    features: ["Complete 18th Edition Rewire", "Fire-Retardant Cabling", "Market Value Boost"],
+  },
+  {
+    id: 6,
+    title: "Fuse Board Replacement",
+    slug: "fuse-board-replacement",
+    icon: Plug,
+    image: "/et5.webp",
+    description: "Upgrade outdated fuse boards with modern safety protection.",
+    longDescription:
+      "Your fuse board (consumer unit) is the control center of your electrical system. Older fuse boards often lack modern safety features such as RCD protection, which increases the risk of electric shock and fire. Our professional fuse board replacement service upgrades your system to a modern 18th Edition compliant consumer unit with advanced circuit protection. This improves safety, reliability, and ensures your electrical installation meets current UK regulations.",
+    features: ["Consumer Unit Upgrade", "RCD Protection", "UK Regulation Compliance"],
+  },
+  {
+    id: 7,
+    title: "EICR (Electrical Installation Condition Report)",
+    slug: "electrical-installation-condition-report",
+    icon: FileCheck,
+    image: "/et7.webp",
+    description: "Professional EICR testing to assess the safety and condition of your electrical installation.",
+    longDescription:
+      "An Electrical Installation Condition Report (EICR) is a detailed inspection of your property's electrical system to ensure it meets current safety standards. Our NICEIC approved electricians carry out comprehensive testing of wiring, circuits, consumer units, earthing, and electrical connections. We identify potential hazards, deterioration, and non-compliant installations, providing a full report with recommendations for any necessary remedial work.",
+    features: ["NICEIC Approved Inspection", "Landlord Compliance", "Remedial Recommendations"],
+  },
+  {
+    id: 8,
+    title: "EV Charger Installations",
+    slug: "ev-charger-installations",
+    icon: Car,
+    image: "/et8.webp",
+    description: "Professional installation of home and commercial EV charging points.",
+    longDescription:
+      "We provide safe and professional EV (Electric Vehicle) charger installation for homes, workplaces, and commercial properties. Our qualified electricians assess your electrical system, install dedicated circuits, and ensure the charger is correctly connected to your consumer unit. We install reliable and efficient charging points compatible with all major electric vehicle brands.",
+    features: ["NICEIC Approved Install", "All Major EV Brands", "Dedicated Circuitry"],
+  },
+  {
+    id: 9,
+    title: "CCTV Installation",
+    slug: "cctv-installation",
+    icon: Camera,
+    image: "/et18.webp",
+    description: "Professional CCTV camera installation to protect your home or business.",
+    longDescription:
+      "We provide professional CCTV installation services for homes, offices, shops, and commercial properties. Our experienced technicians design and install high-quality surveillance systems that allow you to monitor your property 24/7. We install indoor and outdoor security cameras with clear HD recording, remote mobile viewing, motion detection, and secure storage.",
+    features: ["24/7 Surveillance", "Remote Mobile Viewing", "HD Recording"],
+  },
+  {
+    id: 10,
+    title: "Professional PAT Testing",
+    slug: "pat-testing",
+    icon: FileCheck,
+    image: "/et3.webp",
+    description: "Portable Appliance Testing services.",
+    longDescription:
+      "Comprehensive safety compliance for businesses, landlords, and educational facilities. Our Portable Appliance Testing (PAT) goes beyond a simple visual check; we perform earth continuity, insulation resistance, and lead polarity tests to ensure every device is safe for use. Upon completion, you receive a digital asset register and a formal Certificate of Compliance.",
+    features: ["IET Code of Practice", "Insurance Validity", "Digital Asset Register"],
+  },
+  {
+    id: 11,
+    title: "Thermostat Installation",
+    slug: "thermostat-installation",
+    icon: Thermometer,
+    image: "/et10.webp",
+    description: "Professional thermostat installation to improve comfort and energy efficiency.",
+    longDescription:
+      "We provide professional thermostat installation and replacement services for homes and commercial properties. Our electricians install modern and smart thermostats that allow you to control your heating system more efficiently. Whether you are upgrading to a programmable thermostat or installing a smart thermostat with mobile control, we ensure safe wiring and proper configuration.",
+    features: ["Smart Control Integration", "Energy Efficiency", "Safe Configuration"],
+  },
+  {
+    id: 12,
+    title: "Lighting Design & Repair",
+    slug: "lighting-repair",
+    icon: Lightbulb,
+    image: "/et1.webp",
+    description: "Repair internal and external lighting.",
+    longDescription:
+      "Expert restoration and optimization of indoor and outdoor lighting systems. We solve complex issues ranging from flickering LED arrays and faulty ballast units to compromised external security lighting systems. Beyond simple repairs, we provide modern energy-efficiency audits, replacing power-hungry legacy fixtures with high-output, low-consumption smart lighting solutions.",
+    features: ["Energy-Efficiency Audits", "LED Array Restoration", "Smart Lighting"],
+  },
+  {
+    id: 13,
+    title: "Electric Underfloor Heating Installations",
+    slug: "electric-underfloor-heating-installations",
+    icon: Waves,
+    image: "/e11.webp",
+    description: "Efficient electric underfloor heating installation for comfortable spaces.",
+    longDescription:
+      "We provide professional electric underfloor heating installation for homes, bathrooms, kitchens, and commercial properties. Our qualified electricians install reliable heating systems beneath your flooring to deliver consistent warmth. Electric underfloor heating removes the need for bulky radiators and improves heat distribution.",
+    features: ["Radiator-Free Space", "Even Heat Distribution", "Thermostat Integration"],
+  },
+  {
+    id: 14,
+    title: "Intercom Installation",
+    slug: "intercom-installation",
+    icon: PhoneCall,
+    image: "/et11.webp",
+    description: "Professional intercom system installation for secure communication.",
+    longDescription:
+      "We provide professional intercom installation services for residential buildings, offices, apartments, and commercial properties. Our technicians install modern audio and video intercom systems that allow you to communicate with visitors and control access to your property safely.",
+    features: ["Access Control", "Audio/Video Systems", "Mobile Connectivity"],
+  },
+  {
+    id: 15,
+    title: "Circuit Breaker Repair",
+    slug: "circuit-breaker-repair",
     icon: Zap,
-    iconBg: "bg-[#4B2C82]",
-    image: "/bg1.png",
-    description: "Full distribution board upgrades, EICR testing, and custom industrial control panel wiring.",
-    longDescription: "We specialize in the core of your electrical infrastructure, providing precise distribution board upgrades and custom-wired control panels that meet strict safety compliance and performance standards.",
-    features: [
-      "EICR Testing & Certification",
-      "Custom Panel Wiring",
-      "Distribution Board Upgrades"
-    ]
-  }
-  
-  
+    image: "/et5.webp",
+    description: "Expert circuit breaker repair to restore safe and reliable power.",
+    longDescription:
+      "We provide professional circuit breaker repair services for homes, apartments, and commercial properties. Our electricians diagnose and repair faulty breakers, tripping circuits, and damaged wiring to ensure your electrical system operates safely.",
+    features: ["Breaker Diagnosis", "Safety Checks", "Power Restoration"],
+  },
+  {
+    id: 16,
+    title: "Ceiling Fan Installation",
+    slug: "ceiling-fan-installation",
+    icon: Fan,
+    image: "/et15.webp",
+    description: "Professional ceiling fan installation for comfort and energy efficiency.",
+    longDescription:
+      "We offer safe and professional ceiling fan installation services ensuring secure mounting, proper wiring, and smooth operation. A correctly installed fan improves airflow and reduces energy costs.",
+    features: ["Secure Mounting", "Airflow Optimization", "Energy Efficiency"],
+  },
+  {
+    id: 17,
+    title: "No Power in Part of House",
+    slug: "partial-power-outage-repair",
+    icon: Power,
+    image: "/et19.webp",
+    description: "Fast diagnosis and repair for power loss in specific areas.",
+    longDescription:
+      "Our electricians identify wiring issues, tripped breakers, or damaged circuits and restore power safely. We specialize in partial outages that often signal underlying wiring faults.",
+    features: ["Wiring Investigation", "Tripped Breaker Fix", "Fast Response"],
+  },
+  {
+    id: 18,
+    title: "Flickering Lights",
+    slug: "flickering-lights-repair",
+    icon: Lightbulb,
+    image: "/et16.webp",
+    description: "Reliable repair for flickering or unstable lighting.",
+    longDescription:
+      "We inspect wiring, switches, and circuits to eliminate flickering lights and restore stable illumination. This service addresses loose connections or faulty drivers that can cause visual discomfort.",
+    features: ["Wiring Inspection", "Switch Replacement", "Stable Illumination"],
+  },
+  {
+    id: 19,
+    title: "Overloaded Circuit Breakers",
+    slug: "overloaded-circuit-breaker-repair",
+    icon: AlertTriangle,
+    image: "/et9.webp",
+    description: "Professional solutions for overloaded circuits.",
+    longDescription:
+      "Our electricians analyze electrical load and provide solutions like circuit balancing or breaker replacement. Overloaded circuits are a common cause of power interruptions and require load management.",
+    features: ["Circuit Balancing", "Load Analysis", "Breaker Replacement"],
+  },
+  {
+    id: 20,
+    title: "Electrical Panel Repair",
+    slug: "electrical-panel-repair",
+    icon: PanelTop,
+    image: "/et5.webp",
+    description: "Expert electrical panel repair to maintain safe power distribution.",
+    longDescription:
+      "We repair damaged panels, faulty breakers, and loose connections to ensure safe electricity flow. The electrical panel is the foundation of your building's power; we ensure it stays in top condition.",
+    features: ["Loose Connection Repair", "Panel Maintenance", "Safe Power Flow"],
+  },
+  {
+    id: 21,
+    title: "LED Upgrade",
+    slug: "led-upgrade",
+    icon: Lamp,
+    image: "/et20.webp",
+    description: "Upgrade your lighting to energy-efficient LED solutions.",
+    longDescription:
+      "We replace outdated lighting with modern LED systems that save energy and improve brightness. LED upgrades are one of the most cost-effective ways to modernize a space and reduce utility overheads.",
+    features: ["Lower Power Bills", "Increased Brightness", "Eco-Friendly Lighting"],
+  },
+  {
+    id: 22,
+    title: "Smoke Detector Installation",
+    slug: "smoke-detector-installation",
+    icon: Siren,
+    image: "/et14.webp",
+    description: "Professional smoke detector installation for fire detection.",
+    longDescription:
+      "Our technicians install and wire smoke detectors correctly to ensure reliable fire detection. We provide interconnected systems so that if one alarm sounds, they all sound, providing maximum warning time.",
+    features: ["Fire Safety Compliance", "Interconnected Wiring", "Reliable Detection"],
+  },
+  {
+    id: 23,
+    title: "Dimmer Switches",
+    slug: "dimmer-switch-installation",
+    icon: ToggleLeft,
+    image: "/et13.webp",
+    description: "Install modern dimmer switches to control lighting brightness.",
+    longDescription:
+      "Dimmer switches allow flexible lighting control and help reduce energy consumption. We ensure your switches are compatible with your specific LED or halogen lighting for flicker-free operation.",
+    features: ["Ambiance Control", "Reduced Energy Use", "LED Compatibility"],
+  },
+  {
+    id: 24,
+    title: "Annual Electrical Inspection",
+    slug: "annual-electrical-inspection",
+    icon: ClipboardCheck,
+    image: "/et7.webp",
+    description: "Comprehensive annual electrical inspections.",
+    longDescription:
+      "We inspect wiring, panels, outlets, and breakers to identify potential electrical hazards early. Regular inspections are the best way to prevent electrical fires and system failures before they occur.",
+    features: ["Hazard Identification", "System Health Check", "Preventative Care"],
+  },
+  {
+    id: 25,
+    title: "Emergency Lighting Installation",
+    slug: "emergency-lighting-installation",
+    icon: ShieldAlert,
+    image: "/e13.webp",
+    description: "Professional emergency lighting for safety during power outages.",
+    longDescription:
+      "Emergency lighting systems automatically activate during outages to help occupants safely exit buildings. This is critical for commercial compliance and high-occupancy residential buildings.",
+    features: ["Automatic Activation", "Path-to-Exit Safety", "Compliance Certified"],
+  },
+  {
+    id: 26,
+    title: "Power Outage",
+    slug: "power-outage-repair",
+    icon: PlugZap,
+    image: "/et21.webp",
+    description: "Fast troubleshooting and repair for unexpected outages.",
+    longDescription:
+      "We diagnose electrical failures and restore power quickly and safely. Whether it's a localized fault or a main supply issue, we have the tools to get your power back online.",
+    features: ["Emergency Diagnosis", "Safe Power Restore", "Quick Response"],
+  },
+  {
+    id: 27,
+    title: "Heating Installation",
+    slug: "heating-installation",
+    icon: Thermometer,
+    image: "/o1.webp",
+    description: "Expert central heating and smart thermostat setups.",
+    longDescription:
+      "High-efficiency thermal solutions ranging from full central heating system design to localized radiator upgrades. We specialize in integrating smart climate controls like Nest and Hive for programmable warmth.",
+    features: ["Gas Safe Integrated", "NICEIC Certified", "Smart Climate Control"],
+  },
+  {
+    id: 28,
+    title: "Electric Boilers",
+    slug: "electric-boilers",
+    icon: Droplets,
+    image: "/o9.webp",
+    description: "Silent, energy-efficient electric boiler installs.",
+    longDescription:
+      "The modern alternative to gas. Electric boilers are 99% efficient and eliminate the risk of Carbon Monoxide. Perfect for apartments and properties without a gas supply, our focus is on rapid hot water recovery.",
+    features: ["G3 Unvented Certified", "Zero CO Risk", "99% Efficiency"],
+  },
+  {
+    id: 29,
+    title: "Sockets & Switches",
+    slug: "sockets-switches",
+    icon: Plug,
+    image: "/o14.webp",
+    description: "Modern power point and switch additions.",
+    longDescription:
+      "Upgrading your interface with power. We install decorative brushed-steel or matte-black sockets and touch-sensitive switches with deep-backbox fitting for a flush, premium finish.",
+    features: ["Flush Mounting", "Secondary Earth Bonding", "Decorative Finishes"],
+  },
+  {
+    id: 30,
+    title: "Fire Alarm",
+    slug: "fire-alarm",
+    icon: Flame,
+    image: "/et17.webp",
+    description: "Professional fire alarm installation and maintenance.",
+    longDescription:
+      "We install and maintain reliable fire alarm systems to protect homes and businesses. Our service includes alarm system upgrades, wiring checks, and testing to ensure full compliance with safety standards.",
+    features: ["Compliance Certified", "Maintenance Plans", "Early Warning Systems"],
+  },
+  {
+    id: 31,
+    title: "BMS Systems",
+    slug: "bms-systems",
+    icon: Construction,
+    image: "/o16.webp",
+    description: "Automated building management and utility optimization.",
+    longDescription:
+      "The 'brain' of your building. We design and install Building Management Systems (BMS) that centralize control of lighting, heating, and security via logic-based automation.",
+    features: ["KNX / Trend Partner", "Utility Optimization", "Logic Automation"],
+  },
+  {
+    id: 32,
+    title: "Door Entry Systems",
+    slug: "door-entry-systems",
+    icon: Lock,
+    image: "/o10.webp",
+    description: "Secure audio/video intercom and fob access.",
+    longDescription:
+      "Sophisticated access control for multi-unit residential blocks and commercial offices. We install vandal-resistant IP intercoms with smartphone integration and encrypted fob readers.",
+    features: ["SSAIB Security Certified", "IP Intercoms", "Encrypted Fob Access"],
+  },
+  {
+    id: 33,
+    title: "Additional Sockets",
+    slug: "additional-sockets",
+    icon: Plug,
+    image: "/et22.webp",
+    description: "Install extra power sockets for convenience and safety.",
+    longDescription:
+      "We install additional plug sockets in homes and offices to improve accessibility. Our electricians ensure proper wiring, safe load distribution, and neat flush mounting for a professional look.",
+    features: ["Reduced Lead Reliance", "Minor Works Certified", "Flush Mounting"],
+  },
+  {
+    id: 34,
+    title: "Domestic Appliance",
+    slug: "domestic-appliance-installation",
+    icon: WashingMachine,
+    image: "/et23.webp",
+    description: "Safe electrical connections for household appliances.",
+    longDescription:
+      "Professional installation and electrical connection for domestic appliances such as washing machines, ovens, dishwashers, and cookers. We ensure all units are correctly wired and properly isolated.",
+    features: ["Electrical Safety Certified", "Correct Isolation", "Appliance Integration"],
+  },
+  {
+    id: 35,
+    title: "Security Lighting",
+    slug: "security-lighting",
+    icon: Lightbulb,
+    image: "/et25.webp",
+    description: "Outdoor lighting solutions for safety and protection.",
+    longDescription:
+      "Enhance your property's security with professionally installed outdoor and motion-sensor lighting. We install energy-efficient LED security lights and weather-protected wiring to deter unwanted activity.",
+    features: ["PIR Motion Sensors", "Weather-Protected Wiring", "Outdoor Certified"],
+  },
 ];

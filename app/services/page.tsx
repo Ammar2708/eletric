@@ -68,7 +68,7 @@ export default function ServicesPage() {
               <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-blue-600">Specialist Catalog</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0A0A0F]">
-              Engineering <span className="text-zinc-400 font-light italic">Sectors.</span>
+              Expertise <span className="text-zinc-400 font-light italic">Sectors.</span>
             </h1>
           </div>
           
@@ -154,7 +154,7 @@ function ServiceCard({ service }: { service: any }) {
           <h3 className="text-sm font-bold text-white mb-2 tracking-tight">{service.title}</h3>
           
           <p className="text-zinc-500 text-[10px] leading-relaxed mb-6 max-w-[150px]">
-            Technical engineering solutions for specialized environments.
+            Technical emergency solutions for specialized environments.
           </p>
           
           <Link 

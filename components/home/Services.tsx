@@ -4,40 +4,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Wind, Zap, Settings2, Plus, RotateCcw } from "lucide-react";
-
-const servicesData = [
-  {
-    id: 1,
-    title: "Air conditioning",
-    slug: "air-conditioning",
-    details:
-      "High-efficiency cooling systems, VRF installations, and routine maintenance for commercial spaces.",
-    image: "/pic5.webp",
-    icon: <Wind size={24} className="text-white" />,
-    iconBg: "bg-blue-600", // Changed from Red
-  },
-  {
-    id: 2,
-    title: "Heating service",
-    slug: "heating-service",
-    details:
-      "Industrial boiler repairs, central heating upgrades, and energy-efficient heat pump solutions.",
-    image: "/pic6.webp",
-    icon: <Settings2 size={24} className="text-white" />,
-    iconBg: "bg-blue-600",
-  },
-  {
-    id: 3,
-    title: "Electrical panels",
-    slug: "electrical-panels",
-    details:
-      "Full distribution board upgrades, EICR testing, and custom industrial control panel wiring.",
-    image: "/pic7.webp",
-    icon: <Zap size={24} className="text-white" />,
-    iconBg: "bg-blue-600",
-  },
-];
+import { ArrowRight, Plus, RotateCcw } from "lucide-react";
+// Import the services array we converted earlier
+import { SERVICES } from "@/data/servicesData"; 
 
 const Services = () => {
   return (
@@ -80,14 +49,14 @@ const Services = () => {
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {servicesData.map((service, index) => (
+          {SERVICES.slice(0, 6).map((service, index) => ( // Slicing to show first 6 on home
             <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
-              className="group perspective-1000 h-[420px]" // Reduced size from 550px
+              className="group perspective-1000 h-[420px]"
             >
               <Link
                 href={`/services/${service.slug}`}
@@ -108,11 +77,9 @@ const Services = () => {
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-                    {/* Neutral Badge on Front (No Red) */}
-                    <div
-                      className="absolute top-8 right-8 w-12 h-12 rounded-full flex items-center justify-center bg-black/30 backdrop-blur-md border border-white/20 z-20"
-                    >
-                      {service.icon}
+                    <div className="absolute top-8 right-8 w-12 h-12 rounded-full flex items-center justify-center bg-black/30 backdrop-blur-md border border-white/20 z-20 text-white">
+                      {/* Render Icon Component */}
+                      <service.icon size={24} />
                     </div>
 
                     <div className="absolute bottom-10 left-8 right-8 z-20">
@@ -126,20 +93,21 @@ const Services = () => {
                     </div>
                   </div>
 
-                  {/* BACK (Matches Screenshot Style) */}
+                  {/* BACK */}
                   <div className="absolute inset-0 backface-hidden rotate-y-180 bg-[#0a0a0f] rounded-[2.5rem] flex flex-col justify-center items-center p-8 text-center shadow-2xl">
                     
                     {/* Centered Blue Icon */}
-                    <div className="w-16 h-16 rounded-full flex items-center justify-center bg-blue-600 mb-6 shadow-xl shadow-blue-600/20">
-                      {React.cloneElement(service.icon, { size: 28 })}
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center bg-blue-600 mb-6 shadow-xl shadow-blue-600/20 text-white">
+                      <service.icon size={28} />
                     </div>
 
                     <h3 className="text-2xl font-bold text-white mb-3">
                       {service.title}
                     </h3>
 
-                    <p className="text-gray-400 text-sm mb-8 leading-relaxed max-w-[220px]">
-                      {service.details}
+                    {/* Changed from service.details to service.description */}
+                    <p className="text-gray-400 text-sm mb-8 leading-relaxed max-w-[240px]">
+                      {service.description}
                     </p>
 
                     <div className="w-full max-w-[180px]">

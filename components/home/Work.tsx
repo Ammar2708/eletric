@@ -5,12 +5,36 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Phone } from "lucide-react";
 import { useQuoteModal } from "@/components/context/QuoteModalContext";
+import { div } from "framer-motion/m";
 
 const Work = () => {
   const { setOpen } = useQuoteModal();
 
   return (
+    <div>
+
+      {/* Brand Logos Section */}
+      <div className="bg-white">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-20 py-12">
+          <div className="flex flex-wrap justify-center lg:justify-between items-center gap-8">
+
+            {["/a2.webp", "/a3.webp", "/a4.webp"].map((logo, i) => (
+              <Image
+                key={i}
+                src={logo}
+                alt={`Brand ${i}`}
+                width={140}
+                height={80}
+                className="h-12 sm:h-16 md:h-20 w-auto object-contain transition duration-300 hover:scale-105"
+              />
+            ))}
+
+          </div>
+        </div>
+      </div>
     <section className="relative w-full bg-[#1a1333] py-20 lg:py-0 lg:h-[450px] flex items-center overflow-hidden">
+
+      
       
       {/* Decorative Cable Graphic (Bottom Right) */}
       <div className="absolute bottom-10 right-0 opacity-40 select-none pointer-events-none">
@@ -88,6 +112,7 @@ const Work = () => {
         </div>
       </div>
     </section>
+    </div>
   );
 };
 

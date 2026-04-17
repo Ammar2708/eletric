@@ -23,6 +23,8 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-[#0B1221] text-white border-t border-white/5">
+
+      
       
       {/* Increased padding-top for desktop to accommodate your absolute positioning, but kept it sensible for mobile */}
       <div className="relative max-w-7xl mx-auto px-6 pt-16 md:pt-30 pb-1">

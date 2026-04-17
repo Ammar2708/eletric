@@ -93,7 +93,7 @@ const Hero = () => {
           <div className="relative hidden lg:block pr-10">
             <div className="relative z-10 bg-gradient-to-br from-[#161f32] to-[#0B1221] border border-white/10 p-2 rounded-2xl shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
               <div className="aspect-[4/5] rounded-xl overflow-hidden relative bg-[#050810]">
-                 <img src="pic7.webp" alt="Industrial Electrician" className="w-full h-full object-cover opacity-80" />
+                 <img src="h1.png" alt="Industrial Electrician" className="w-full h-full object-cover opacity-80" />
                  <div className="absolute inset-0 bg-blue-600/10 mix-blend-overlay" />
               </div>
             </div>
