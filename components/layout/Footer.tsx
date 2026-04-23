@@ -102,7 +102,7 @@ const Footer = () => {
                     <FaPhoneAlt className="text-[#2563eb]" size={14} />
                 </div>
                 <Link href="tel:+44123456789" className="text-white hover:text-[#2563eb] transition font-medium">
-                    +44 (0) 123 456 789
+                     (020) 397-33443
                 </Link>
               </div>
 
@@ -135,7 +135,7 @@ const Footer = () => {
               </p>
 
               <Link 
-                href="tel:0000000000"
+                href="tel:02039733443"
                 className="flex items-center justify-center bg-[#1D4ED8] hover:bg-[#2563eb] text-white transition-all py-4 text-sm font-bold tracking-wide rounded-xl shadow-lg active:scale-[0.98]"
               >
                 Request Emergency Call

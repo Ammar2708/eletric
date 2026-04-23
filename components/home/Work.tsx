@@ -96,14 +96,14 @@ const Work = () => {
 
               {/* Phone Link (Screenshot Style) */}
               <a 
-                href="tel:01234567890" 
+                href="tel:02039733443" 
                 className="flex items-center gap-4 group hover:opacity-80 transition-opacity"
               >
                 <div className="w-14 h-14 bg-[#FF4D4D] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                   <Phone size={24} fill="white" className="text-white" />
                 </div>
                 <span className="text-2xl md:text-3xl font-bold tracking-tighter">
-                  (123) 456-7890
+                  (020) 397-33443
                 </span>
               </a>
             </motion.div>

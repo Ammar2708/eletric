@@ -48,9 +48,9 @@ const QuoteModal = () => {
             className="relative w-full max-w-xl rounded-xl overflow-hidden shadow-[0_0_50px_-12px_rgba(59,130,246,0.5)] border border-blue-500/20"
           >
             {/* Urgent Header */}
-            <div className="bg-[#0A1224] border-b border-blue-500/20 p-7 pt-10 relative overflow-hidden">
+            <div className="bg-[#0A1224] border-b border-blue-500/20 p-7 pt-10 sm:pt-15 relative overflow-hidden">
                 {/* Decorative background pulse */}
-                <div className="absolute top-19 right-0 p-4">
+                <div className="absolute lg:top-19  top-27  right-0 p-4">
                     <div className="flex items-center gap-2 bg-red-500/10 border border-red-500/50 px-3 py-1 rounded-full">
                         <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
                         <span className="text-[10px] font-bold text-red-500 uppercase tracking-widest">Live Dispatch</span>
