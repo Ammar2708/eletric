@@ -48,15 +48,15 @@ const Testimonials = () => {
   const activeTestimonial = testimonials[index];
 
   return (
-    <section className="overflow-hidden bg-[#f7f9fc] px-5 py-12 lg:px-10 lg:py-14">
+    <section className="overflow-hidden bg-[#f7f9fc] px-4 py-8 lg:px-8 lg:py-10">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
+        <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12">
           <div className="order-2 lg:order-1 lg:col-span-5">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-5"
+              className="space-y-4"
             >
               <div className="flex items-center gap-4">
                 <div className="h-1.5 w-12 bg-[#FF4D4D]" />
@@ -65,43 +65,43 @@ const Testimonials = () => {
                 </p>
               </div>
 
-              <h2 className="text-3xl font-black uppercase leading-[0.95] tracking-normal text-[#1a1333] md:text-5xl">
+              <h2 className="text-3xl font-black uppercase leading-[0.95] tracking-normal text-[#1a1333] md:text-4xl">
                 Real words <br />
-                <span className="text-2xl font-light italic text-slate-300 md:text-4xl">
+                <span className="text-2xl font-light italic text-slate-300 md:text-3xl">
                   from real sites
                 </span>
               </h2>
 
-              <p className="max-w-md text-base font-light leading-relaxed text-slate-500">
+              <p className="max-w-md text-sm font-light leading-relaxed text-slate-500">
                 A video-first wall of client moments, site results, and the kind of
                 details that matter after the tools are packed away.
               </p>
 
               <div className="grid max-w-md grid-cols-3 overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white shadow-sm">
-                <div className="border-r border-slate-100 p-3">
-                  <p className="text-xl font-black text-[#1a1333]">4.9</p>
+                <div className="border-r border-slate-100 p-2.5">
+                  <p className="text-lg font-black text-[#1a1333]">4.9</p>
                   <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
                     Rating
                   </p>
                 </div>
-                <div className="border-r border-slate-100 p-3">
-                  <p className="text-xl font-black text-[#1a1333]">24h</p>
+                <div className="border-r border-slate-100 p-2.5">
+                  <p className="text-lg font-black text-[#1a1333]">24h</p>
                   <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
                     Response
                   </p>
                 </div>
-                <div className="p-3">
-                  <p className="text-xl font-black text-[#1a1333]">UK</p>
+                <div className="p-2.5">
+                  <p className="text-lg font-black text-[#1a1333]">UK</p>
                   <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
                     Coverage
                   </p>
                 </div>
               </div>
 
-              <div className="flex flex-col items-start gap-5 pt-1 sm:flex-row sm:items-center">
+              <div className="flex flex-col items-start gap-4 pt-1 sm:flex-row sm:items-center">
                 <button
                   onClick={() => setOpen(true)}
-                  className="group relative overflow-hidden rounded-full bg-[#1a1333] px-8 py-3 text-[11px] font-bold uppercase tracking-widest text-white transition-all duration-500"
+                  className="group relative overflow-hidden rounded-full bg-[#1a1333] px-7 py-2.5 text-[10px] font-bold uppercase tracking-widest text-white transition-all duration-500"
                 >
                   <span className="relative z-10">Get a quote</span>
                   <div className="absolute inset-0 translate-y-full bg-[#2E5BFF] transition-transform duration-500 group-hover:translate-y-0" />
@@ -135,11 +135,11 @@ const Testimonials = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative z-10 overflow-hidden rounded-[1.5rem] border border-white bg-[#090617] p-3 shadow-2xl shadow-slate-300/80 md:p-4"
+                className="relative z-10 overflow-hidden rounded-[1.25rem] border border-white bg-[#090617] p-2.5 shadow-2xl shadow-slate-300/80 md:p-3"
               >
-                <div className="grid gap-4 md:grid-cols-[minmax(200px,280px)_1fr] md:items-stretch">
-                  <div className="mx-auto w-full max-w-[280px] rounded-[1.5rem] border border-white/10 bg-black p-2 shadow-2xl shadow-black/40">
-                    <div className="relative aspect-[9/16] max-h-[430px] overflow-hidden rounded-[1.15rem] bg-black">
+                <div className="grid gap-3 md:grid-cols-[minmax(170px,230px)_1fr] md:items-stretch">
+                  <div className="mx-auto w-full max-w-[230px] rounded-[1.25rem] border border-white/10 bg-black p-1.5 shadow-2xl shadow-black/40">
+                    <div className="relative aspect-[9/16] max-h-[350px] overflow-hidden rounded-[1rem] bg-black">
                       <video
                         key={`${activeTestimonial.video}-${index}`}
                         className="h-full w-full object-contain"
@@ -152,9 +152,9 @@ const Testimonials = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-col justify-between rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-5 text-white">
+                  <div className="flex flex-col justify-between rounded-[1rem] border border-white/10 bg-white/[0.04] p-4 text-white">
                     <div>
-                      <div className="mb-4 flex flex-wrap items-center gap-2">
+                      <div className="mb-3 flex flex-wrap items-center gap-2">
                         <span className="flex items-center gap-2 rounded-full bg-white px-3 py-2 text-[10px] font-black uppercase tracking-widest text-[#1a1333]">
                           <Video size={15} className="text-[#2E5BFF]" />
                           Client reel
@@ -172,18 +172,18 @@ const Testimonials = () => {
 
                       <Quote className="mb-3 text-[#FF4D4D]" size={26} fill="currentColor" />
 
-                      <h3 className="text-xl font-bold leading-tight md:text-2xl">
+                      <h3 className="text-lg font-bold leading-tight md:text-xl">
                         {activeTestimonial.quote}
                       </h3>
 
-                      <p className="mt-3 text-sm font-light leading-relaxed text-white/75">
+                      <p className="mt-2 text-xs font-light leading-relaxed text-white/75 md:text-sm">
                         &quot;{activeTestimonial.description}&quot;
                       </p>
                     </div>
 
-                    <div className="mt-5 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-[#1a1333]">
-                        <Play size={16} fill="currentColor" />
+                    <div className="mt-4 flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-2.5">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-[#1a1333]">
+                        <Play size={15} fill="currentColor" />
                       </div>
                       <div className="min-w-0">
                         <p className="text-xs font-black uppercase tracking-widest">
@@ -199,20 +199,20 @@ const Testimonials = () => {
               </motion.div>
             </AnimatePresence>
 
-            <div className="relative z-20 mt-3 grid gap-2 sm:grid-cols-3">
+            <div className="relative z-20 mt-2 grid gap-2 sm:grid-cols-3">
               {testimonials.map((testimonial, i) => (
                 <button
                   key={testimonial.author}
                   type="button"
                   onClick={() => setIndex(i)}
-                  className={`group flex min-h-20 items-center gap-3 rounded-2xl border p-2.5 text-left shadow-lg transition-all duration-500 ${
+                  className={`group flex min-h-16 items-center gap-2.5 rounded-xl border p-2 text-left shadow-lg transition-all duration-500 ${
                     index === i
                       ? "border-[#2E5BFF] bg-white text-[#1a1333] shadow-blue-100"
                       : "border-white/70 bg-white/80 text-slate-500 backdrop-blur hover:border-[#2E5BFF]/60 hover:bg-white"
                   }`}
                 >
                   <span
-                    className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-cover bg-center"
+                    className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-cover bg-center"
                     style={{ backgroundImage: `url(${testimonial.poster})` }}
                   >
                     <span className="absolute inset-0 bg-[#1a1333]/30" />
