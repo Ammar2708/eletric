@@ -47,15 +47,15 @@ export default function PaySlider() {
   const ActiveIcon = activeMethod.icon;
 
   return (
-    <section className="bg-white px-6 py-16 lg:px-14 lg:py-24">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+    <section className="bg-white px-5 py-12 lg:px-10 lg:py-16">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="mb-4 flex items-center gap-2 text-xs font-bold uppercase text-blue-600">
               <span className="h-[2px] w-10 bg-blue-600" />
               Secure Transactions
             </div>
-            <h2 className="text-4xl font-bold leading-tight text-[#1a1333] md:text-5xl">
+            <h2 className="text-3xl font-bold leading-tight text-[#1a1333] md:text-4xl">
               Accepted payment methods
             </h2>
             <div className="mt-4 h-1 w-16 bg-blue-600" />
@@ -67,9 +67,9 @@ export default function PaySlider() {
           </div>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[1fr_380px]">
-          <div className="overflow-hidden rounded-[2rem] border border-slate-100 bg-slate-50 p-4 shadow-xl shadow-blue-100/40 sm:p-6">
-            <div className="overflow-hidden rounded-[1.5rem] bg-white shadow-sm">
+        <div className="grid gap-5 lg:grid-cols-[1fr_320px]">
+          <div className="overflow-hidden rounded-[1.5rem] border border-slate-100 bg-slate-50 p-3 shadow-xl shadow-blue-100/40 sm:p-5">
+            <div className="overflow-hidden rounded-[1.25rem] bg-white shadow-sm">
               <div
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{ transform: `translateX(-${current * 100}%)` }}
@@ -80,11 +80,11 @@ export default function PaySlider() {
                   return (
                     <article
                       key={method.name}
-                      className="grid min-h-[260px] w-full flex-shrink-0 gap-8 p-6 text-[#0B1221] sm:min-h-[300px] sm:p-9 md:grid-cols-[0.9fr_1.1fr] md:items-center"
+                      className="grid min-h-[220px] w-full flex-shrink-0 gap-6 p-5 text-[#0B1221] sm:min-h-[250px] sm:p-7 md:grid-cols-[0.9fr_1.1fr] md:items-center"
                     >
-                      <div className="flex h-44 items-center justify-center rounded-[1.5rem] bg-[#1B365D] text-white shadow-lg shadow-blue-100 sm:h-52">
-                        <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white/10">
-                          <Icon size={44} />
+                      <div className="flex h-36 items-center justify-center rounded-[1.25rem] bg-[#1B365D] text-white shadow-lg shadow-blue-100 sm:h-44">
+                        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/10">
+                          <Icon size={38} />
                         </div>
                       </div>
 
@@ -92,14 +92,14 @@ export default function PaySlider() {
                         <p className="mb-3 text-xs font-black uppercase text-blue-600">
                           Payment Method
                         </p>
-                        <h3 className="text-4xl font-black leading-none text-[#1a1333] sm:text-5xl">
+                        <h3 className="text-3xl font-black leading-none text-[#1a1333] sm:text-4xl">
                           {method.name}
                         </h3>
-                        <p className="mt-4 max-w-sm text-base font-semibold leading-relaxed text-slate-500">
+                        <p className="mt-3 max-w-sm text-sm font-semibold leading-relaxed text-slate-500">
                           {method.detail}
                         </p>
 
-                        <div className="mt-7 flex flex-wrap gap-3">
+                        <div className="mt-5 flex flex-wrap gap-3">
                           <span className="rounded-full bg-blue-50 px-4 py-2 text-xs font-bold text-blue-600">
                             Accepted
                           </span>
@@ -114,7 +114,7 @@ export default function PaySlider() {
               </div>
             </div>
 
-            <div className="mt-6 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+            <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex justify-center gap-2 sm:justify-start">
                 {paymentMethods.map((method, i) => (
                   <button
@@ -150,8 +150,8 @@ export default function PaySlider() {
             </div>
           </div>
 
-          <div className="rounded-[2rem] bg-[#1a1333] p-6 text-white shadow-xl shadow-slate-200/70">
-            <div className="mb-6 flex items-center gap-4">
+          <div className="rounded-[1.5rem] bg-[#1a1333] p-5 text-white shadow-xl shadow-slate-200/70">
+            <div className="mb-5 flex items-center gap-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600">
                 <ActiveIcon size={24} />
               </div>
@@ -161,13 +161,13 @@ export default function PaySlider() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2.5">
               {paymentMethods.map((method, i) => (
                 <button
                   key={method.name}
                   type="button"
                   onClick={() => setCurrent(i)}
-                  className={`min-h-16 rounded-2xl border px-3 py-3 text-left text-xs font-bold transition-all ${
+                  className={`min-h-14 rounded-2xl border px-3 py-2.5 text-left text-xs font-bold transition-all ${
                     current === i
                       ? "border-blue-500 bg-blue-600 text-white"
                       : "border-white/10 bg-white/5 text-white/70 hover:border-blue-400 hover:text-white"
@@ -178,7 +178,7 @@ export default function PaySlider() {
               ))}
             </div>
 
-            <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-6 text-sm text-white/60">
+            <div className="mt-5 flex items-center gap-3 border-t border-white/10 pt-5 text-sm text-white/60">
               <ShieldCheck size={20} className="shrink-0 text-blue-400" />
               Secure options for call-outs, project work, and invoices.
             </div>

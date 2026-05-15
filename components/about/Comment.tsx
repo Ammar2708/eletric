@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import { useQuoteModal } from "@/components/context/QuoteModalContext";
-import { Quote } from "lucide-react"; // Added for a professional touch
+import { Play, Quote, Sparkles, Star, Video } from "lucide-react";
 
 const testimonials = [
   {
@@ -13,7 +12,10 @@ const testimonials = [
       "The technical precision in our panel upgrades was outstanding. They are easily the most reliable contractors we've worked with in London.",
     author: "James Sterling",
     location: "London, UK",
-    image: "/pic8.webp", // Using your project images
+    service: "Panel upgrade",
+    duration: "00:42",
+    video: "/v1.mp4",
+    poster: "/pic8.webp",
   },
   {
     quote: "Modern Design & Flawless Execution",
@@ -21,7 +23,10 @@ const testimonials = [
       "They managed to blend our industrial requirements with a clean, modern aesthetic. Truly a high-end service for technical projects.",
     author: "Sarah Jenkins",
     location: "Manchester, UK",
-    image: "/pic10.webp",
+    service: "Commercial fit-out",
+    duration: "01:08",
+    video: "/v1.mp4",
+    poster: "/pic10.webp",
   },
   {
     quote: "Rapid Response & Reliability",
@@ -29,70 +34,86 @@ const testimonials = [
       "Their emergency electrical solutions saved our facility hours of downtime. Professional, transparent, and highly skilled.",
     author: "Robert Hall",
     location: "Surrey, UK",
-    image: "/pic3.webp",
+    service: "Emergency repair",
+    duration: "00:55",
+    video: "/v1.mp4",
+    poster: "/pic3.webp",
   },
 ];
 
 const Testimonials = () => {
   const [index, setIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const { setOpen } = useQuoteModal();
 
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % testimonials.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [isPaused]);
+  const activeTestimonial = testimonials[index];
 
   return (
-    <section className="bg-white py-24 px-6 lg:px-14 overflow-hidden">
+    <section className="overflow-hidden bg-[#f7f9fc] px-5 py-12 lg:px-10 lg:py-14">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* LEFT: Static Content (Brand Identity) */}
-          <div className="lg:col-span-5 order-2 lg:order-1">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
+          <div className="order-2 lg:order-1 lg:col-span-5">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-8"
+              className="space-y-5"
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-1.5 bg-[#FF4D4D]" />
+                <div className="h-1.5 w-12 bg-[#FF4D4D]" />
                 <p className="text-[#1a1333] text-[11px] font-black tracking-[0.4em] uppercase">
-                  Client Feedback
+                  Client Video Stories
                 </p>
               </div>
 
-              <h2 className="text-5xl md:text-6xl font-black text-[#1a1333] tracking-tighter leading-[0.9] uppercase">
-                What our <br />
-                <span className="text-gray-300 italic font-light text-4xl">
-                  Customers say
+              <h2 className="text-3xl font-black uppercase leading-[0.95] tracking-normal text-[#1a1333] md:text-5xl">
+                Real words <br />
+                <span className="text-2xl font-light italic text-slate-300 md:text-4xl">
+                  from real sites
                 </span>
               </h2>
 
-              <p className="text-gray-500 text-lg max-w-md font-light leading-relaxed">
-                We take pride in delivering technical excellence across the UK, 
-                fostering long-term partnerships through reliability and precision.
+              <p className="max-w-md text-base font-light leading-relaxed text-slate-500">
+                A video-first wall of client moments, site results, and the kind of
+                details that matter after the tools are packed away.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 pt-4">
+              <div className="grid max-w-md grid-cols-3 overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white shadow-sm">
+                <div className="border-r border-slate-100 p-3">
+                  <p className="text-xl font-black text-[#1a1333]">4.9</p>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+                    Rating
+                  </p>
+                </div>
+                <div className="border-r border-slate-100 p-3">
+                  <p className="text-xl font-black text-[#1a1333]">24h</p>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+                    Response
+                  </p>
+                </div>
+                <div className="p-3">
+                  <p className="text-xl font-black text-[#1a1333]">UK</p>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+                    Coverage
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-start gap-5 pt-1 sm:flex-row sm:items-center">
                 <button
                   onClick={() => setOpen(true)}
-                  className="group relative overflow-hidden bg-[#1a1333] text-white px-10 py-4 rounded-full font-bold text-[11px] uppercase tracking-widest transition-all duration-500"
+                  className="group relative overflow-hidden rounded-full bg-[#1a1333] px-8 py-3 text-[11px] font-bold uppercase tracking-widest text-white transition-all duration-500"
                 >
                   <span className="relative z-10">Get a quote</span>
-                  <div className="absolute inset-0 bg-[#2E5BFF] translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                  <div className="absolute inset-0 translate-y-full bg-[#2E5BFF] transition-transform duration-500 group-hover:translate-y-0" />
                 </button>
 
-                {/* DOTS NAVIGATION */}
                 <div className="flex gap-3">
                   {testimonials.map((_, i) => (
                     <button
                       key={i}
+                      type="button"
                       onClick={() => setIndex(i)}
+                      aria-label={`Show client video ${i + 1}`}
                       className={`h-2 transition-all duration-700 rounded-full ${
                         index === i ? "w-12 bg-[#2E5BFF]" : "w-4 bg-gray-200"
                       }`}
@@ -103,12 +124,10 @@ const Testimonials = () => {
             </motion.div>
           </div>
 
-          {/* RIGHT: The Card Slider */}
-          <div 
-            className="lg:col-span-7 order-1 lg:order-2 relative h-[500px] w-full"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-          >
+          <div className="relative order-1 w-full lg:order-2 lg:col-span-7">
+            <div className="absolute left-6 top-4 hidden h-28 w-28 rounded-full border border-[#2E5BFF]/20 bg-white/70 backdrop-blur md:block" />
+            <div className="absolute bottom-10 right-8 hidden h-40 w-40 rounded-full border border-[#FF4D4D]/20 bg-white/70 backdrop-blur md:block" />
+
             <AnimatePresence mode="wait">
               <motion.div
                 key={index}
@@ -116,49 +135,107 @@ const Testimonials = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute inset-0 rounded-[40px] overflow-hidden shadow-2xl border border-gray-100"
+                className="relative z-10 overflow-hidden rounded-[1.5rem] border border-white bg-[#090617] p-3 shadow-2xl shadow-slate-300/80 md:p-4"
               >
-                <Image
-                  src={testimonials[index].image}
-                  alt={testimonials[index].author}
-                  fill
-                  className="object-cover brightness-[0.6] grayscale-[0.3] hover:grayscale-0 transition-all duration-1000"
-                />
+                <div className="grid gap-4 md:grid-cols-[minmax(200px,280px)_1fr] md:items-stretch">
+                  <div className="mx-auto w-full max-w-[280px] rounded-[1.5rem] border border-white/10 bg-black p-2 shadow-2xl shadow-black/40">
+                    <div className="relative aspect-[9/16] max-h-[430px] overflow-hidden rounded-[1.15rem] bg-black">
+                      <video
+                        key={`${activeTestimonial.video}-${index}`}
+                        className="h-full w-full object-contain"
+                        poster={activeTestimonial.poster}
+                        src={activeTestimonial.video}
+                        playsInline
+                        controls
+                        preload="metadata"
+                      />
+                    </div>
+                  </div>
 
-                {/* Content Overlay */}
-                <div className="absolute inset-0 p-10 md:p-14 flex flex-col justify-end bg-gradient-to-t from-[#1a1333] via-[#1a1333]/30 to-transparent text-white">
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.3 }}
-                  >
-                    <Quote className="text-[#FF4D4D] mb-6" size={40} fill="currentColor" />
-                    
-                    <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight max-w-lg">
-                      {testimonials[index].quote}
-                    </h3>
+                  <div className="flex flex-col justify-between rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-5 text-white">
+                    <div>
+                      <div className="mb-4 flex flex-wrap items-center gap-2">
+                        <span className="flex items-center gap-2 rounded-full bg-white px-3 py-2 text-[10px] font-black uppercase tracking-widest text-[#1a1333]">
+                          <Video size={15} className="text-[#2E5BFF]" />
+                          Client reel
+                        </span>
+                        <span className="rounded-full bg-[#FF4D4D] px-3 py-2 text-[10px] font-black uppercase tracking-widest text-white">
+                          Press play for sound
+                        </span>
+                      </div>
 
-                    <p className="text-base text-white/70 max-w-md mb-8 font-light leading-relaxed italic">
-                      "{testimonials[index].description}"
-                    </p>
+                      <div className="mb-3 flex items-center gap-1 text-[#FFD166]">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} size={14} fill="currentColor" />
+                        ))}
+                      </div>
 
-                    <div className="flex items-center gap-4">
-                      <div className="h-[1px] w-10 bg-[#2E5BFF]" />
-                      <div>
-                        <p className="text-xs uppercase tracking-widest font-black text-white">
-                          {testimonials[index].author}
+                      <Quote className="mb-3 text-[#FF4D4D]" size={26} fill="currentColor" />
+
+                      <h3 className="text-xl font-bold leading-tight md:text-2xl">
+                        {activeTestimonial.quote}
+                      </h3>
+
+                      <p className="mt-3 text-sm font-light leading-relaxed text-white/75">
+                        &quot;{activeTestimonial.description}&quot;
+                      </p>
+                    </div>
+
+                    <div className="mt-5 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-[#1a1333]">
+                        <Play size={16} fill="currentColor" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-xs font-black uppercase tracking-widest">
+                          {activeTestimonial.author}
                         </p>
-                        <p className="text-[10px] uppercase tracking-widest text-[#2E5BFF] font-bold">
-                          {testimonials[index].location}
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-[#75A7FF]">
+                          {activeTestimonial.location} / {activeTestimonial.service}
                         </p>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </motion.div>
             </AnimatePresence>
-          </div>
 
+            <div className="relative z-20 mt-3 grid gap-2 sm:grid-cols-3">
+              {testimonials.map((testimonial, i) => (
+                <button
+                  key={testimonial.author}
+                  type="button"
+                  onClick={() => setIndex(i)}
+                  className={`group flex min-h-20 items-center gap-3 rounded-2xl border p-2.5 text-left shadow-lg transition-all duration-500 ${
+                    index === i
+                      ? "border-[#2E5BFF] bg-white text-[#1a1333] shadow-blue-100"
+                      : "border-white/70 bg-white/80 text-slate-500 backdrop-blur hover:border-[#2E5BFF]/60 hover:bg-white"
+                  }`}
+                >
+                  <span
+                    className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-cover bg-center"
+                    style={{ backgroundImage: `url(${testimonial.poster})` }}
+                  >
+                    <span className="absolute inset-0 bg-[#1a1333]/30" />
+                    <span className="absolute inset-0 flex items-center justify-center text-white">
+                      <Play size={17} fill="currentColor" />
+                    </span>
+                  </span>
+                  <span className="min-w-0">
+                    <span className="mb-1 flex items-center gap-1 text-[10px] font-black uppercase tracking-widest text-[#FF4D4D]">
+                      <Sparkles size={12} />
+                      {testimonial.service}
+                    </span>
+                    <span className="block truncate text-sm font-black">
+                      {testimonial.author}
+                    </span>
+                    <span className="block truncate text-xs font-semibold text-slate-400">
+                      {testimonial.location}
+                    </span>
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
