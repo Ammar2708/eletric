@@ -1,0 +1,125 @@
+export type ServiceArea = {
+  name: string;
+  slug: string;
+  region: string;
+};
+
+const makeSlug = (name: string) =>
+  name
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+
+const areaNames = [
+  'Barnet',
+  'Merton',
+  'Sutton',
+  'Barking & Dagenham',
+  'Bexley',
+  'Brent',
+  'Bromley',
+  'Camden',
+  'City of London',
+  'Croydon',
+  'Ealing',
+  'Enfield',
+  'Greenwich',
+  'Haringey',
+  'Harrow',
+  'Havering',
+  'Hillingdon',
+  'Hounslow',
+  'Islington',
+  'Kensington and Chelsea',
+  'Kingston upon Thames',
+  'Lambeth',
+  'Lewisham',
+  'Newham',
+  'Redbridge',
+  'Southwark',
+  'Tower Hamlets',
+  'Waltham Forest',
+  'Weybridge',
+  'Westminster',
+  'Balham',
+  'Clapham',
+  'Wandsworth',
+  'Stanwell',
+  'Thornton Heath',
+  'Streatham',
+  'Brixton',
+  'Battersea',
+  'Putney',
+  'Wimbledon',
+  'Richmond',
+  'Kingston',
+  'Chelsea',
+  'Fulham',
+  'Kensington',
+  'Acton',
+  'Tooting',
+  'Walworth',
+  'Camberwell',
+  'Dog Kennel Hill',
+  'Herne Hill',
+  'Elmington',
+  'Willowbrook',
+  'Peckham',
+  'Deptford',
+  'Deptford Gateway',
+  'Newland',
+  'Dulwich',
+  'Brockwell Lido',
+  'Norwood',
+  'Anerley',
+  'Sydenham',
+  'Beckenham',
+  'Elmers End',
+  'Penge',
+  'Beulah Hill',
+  'Perry Hill',
+  'Downham Way',
+  'Plaistow',
+];
+
+const londonBoroughs = new Set([
+  'Barnet',
+  'Merton',
+  'Sutton',
+  'Barking & Dagenham',
+  'Bexley',
+  'Brent',
+  'Bromley',
+  'Camden',
+  'City of London',
+  'Croydon',
+  'Ealing',
+  'Enfield',
+  'Greenwich',
+  'Haringey',
+  'Harrow',
+  'Havering',
+  'Hillingdon',
+  'Hounslow',
+  'Islington',
+  'Kensington and Chelsea',
+  'Kingston upon Thames',
+  'Lambeth',
+  'Lewisham',
+  'Newham',
+  'Redbridge',
+  'Southwark',
+  'Tower Hamlets',
+  'Waltham Forest',
+  'Westminster',
+]);
+
+export const AREAS: ServiceArea[] = areaNames.map((name) => ({
+  name,
+  slug: makeSlug(name),
+  region: londonBoroughs.has(name) ? 'London borough' : 'Local service area',
+}));
+
+export const findAreaBySlug = (slug: string) =>
+  AREAS.find((area) => area.slug === slug);

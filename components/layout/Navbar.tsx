@@ -1,203 +1,134 @@
-// "use client";
-
-// import React, { useState } from 'react';
-// import Link from 'next/link';
-// import Image from 'next/image';
-// import { Menu, X, PhoneCall } from 'lucide-react';
-
-// const Navbar = () => {
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   const navLinks = [
-//     { name: 'Home', href: '/' },
-//     { name: 'Services', href: '/services' },
-//     { name: 'About', href: '/about' },
-//     { name: 'Contact', href: '/contact' },
-//   ];
-
-//   return (
-//     <nav className="fixed w-full z-50 top-0 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
-//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//         <div className="flex justify-between items-center h-20 md:h-24">
-          
-//           {/* Logo Section - Now Image Only */}
-//           <div className="flex-shrink-0 flex items-center">
-//             <Link 
-//               href="/" 
-//               className="block relative w-16 h-16 md:w-84 md:h-48 transition-transform duration-200 hover:scale-105 active:scale-95"
-//             >
-//               <Image
-//                 src="/logo.png" 
-//                 alt="Emergency Electrical Solution Logo"
-//                 fill
-//                 className="object-contain"
-//                 priority
-//               />
-//             </Link>
-//           </div>
-
-//           {/* Desktop Navigation */}
-//           <div className="hidden md:flex items-center space-x-8">
-//             {navLinks.map((link) => (
-//               <Link
-//                 key={link.name}
-//                 href={link.href}
-//                 className="text-slate-600 hover:text-[#1B365D] font-bold transition-colors duration-200 text-sm uppercase tracking-widest"
-//               >
-//                 {link.name}
-//               </Link>
-//             ))}
-//             <Link 
-//               href="tel:07000000000"
-//               className="bg-[#1B365D] hover:bg-[#254a80] text-white px-6 py-3 rounded-none flex items-center gap-2 font-black transition-all shadow-md hover:shadow-xl active:scale-95"
-//             >
-//               <PhoneCall size={18} />
-//               24/7 EMERGENCY
-//             </Link>
-//           </div>
-
-//           {/* Mobile Menu Button */}
-//           <div className="md:hidden flex items-center">
-//             <button
-//               onClick={() => setIsOpen(!isOpen)}
-//               className="text-[#1B365D] focus:outline-none p-2"
-//             >
-//               {isOpen ? <X size={32} /> : <Menu size={32} />}
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Mobile Menu Overlay */}
-//       <div className={`md:hidden bg-white border-b border-slate-200 transition-all ${isOpen ? 'block' : 'hidden'}`}>
-//         <div className="px-6 pt-4 pb-10 space-y-4 text-center">
-//           {navLinks.map((link) => (
-//             <Link
-//               key={link.name}
-//               href={link.href}
-//               onClick={() => setIsOpen(false)}
-//               className="block py-4 text-lg font-black text-slate-800 uppercase tracking-tighter border-b border-slate-50"
-//             >
-//               {link.name}
-//             </Link>
-//           ))}
-//           <Link
-//             href="tel:07000000000"
-//             className="w-full mt-6 bg-[#1B365D] text-white p-5 rounded-none flex justify-center items-center gap-3 font-black text-lg shadow-lg"
-//           >
-//             <PhoneCall size={22} />
-//             CALL NOW
-//           </Link>
-//         </div>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
 "use client";
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, PhoneCall } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Mail, Menu, PhoneCall, ShieldCheck, X } from 'lucide-react';
+
+const navLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Services', href: '/services' },
+  { name: 'Area', href: '/area' },
+  { name: 'Contact', href: '/contact' },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Contact', href: '/contact' },
-  ];
+  const isActive = (href: string) =>
+    href === '/' ? pathname === href : pathname.startsWith(href);
 
   return (
-    <nav className="fixed w-full z-50 top-0 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20 md:h-22">
-          
-          {/* Logo Section - Preserved Desktop Dimensions */}
-          <div className="flex-shrink-0 flex items-center">
-            <Link 
-              href="/" 
-              className="block relative w-44 h-32 md:w-64 md:h-48 transition-transform duration-200 hover:scale-105 active:scale-95"
-            >
-              <Image
-                src="/logo3.png" 
-                alt="Emergency Electrical Solution Logo"
-                fill
-                className="object-contain"
-                priority
-              />
-            </Link>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white/95 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-xl">
+      <div className="hidden bg-[var(--brand-night)] text-white md:block">
+        <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-4 text-xs font-semibold sm:px-6 lg:px-8">
+          <div className="flex items-center gap-2 text-slate-300">
+            <ShieldCheck size={14} className="text-[var(--brand-amber)]" />
+            <span><span className='text-[#C2101D]'>NICEIC</span> approved electricians - 24/7 emergency response</span>
           </div>
-
-          {/* Desktop Navigation - Hidden on mobile, shown on md+ */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-slate-600 hover:text-[#1B365D] font-bold transition-colors duration-200 text-sm uppercase tracking-widest"
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Link 
-              href="tel:02039733443"
-              className="bg-[#1B365D] hover:bg-[#254a80] text-white px-6 py-3 rounded-none flex items-center gap-2 font-black transition-all shadow-md hover:shadow-xl active:scale-95"
-            >
-              <PhoneCall size={18} />
-              24/7 EMERGENCY
+          <div className="flex items-center gap-6">
+            <Link href="mailto:info@emergencyelectricalsolutionltd.co.uk" className="flex items-center gap-2 text-slate-300 transition-colors hover:text-white">
+              <Mail size={14} className="text-[var(--brand-amber)]" />
+              info@emergencyelectricalsolutionltd.co.uk
             </Link>
-          </div>
-
-          {/* Mobile Menu Button - Shown only on mobile */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-[#1B365D] focus:outline-none p-2 transition-transform active:scale-90"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X size={32} /> : <Menu size={32} />}
-            </button>
+            <Link href="tel:02039733443" className="flex items-center gap-2 text-white">
+              <PhoneCall size={14} className="text-[var(--brand-amber)]" />
+              020 3973 3443
+            </Link>
           </div>
         </div>
       </div>
 
-      {/* Responsive Mobile Menu Overlay - Maintains your exact Design & White Theme */}
-      <div 
-        className={`md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 transition-all duration-300 ease-in-out origin-top ${
-          isOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[var(--brand-blue)] via-[var(--brand-amber)] to-[#C20E1E] md:top-9" />
+
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between gap-5 px-4 sm:px-6 lg:px-8">
+        <Link
+          href="/"
+          aria-label="Emergency Electrical Solution home"
+          onClick={() => setIsOpen(false)}
+          className="relative flex h-[92px] w-48 shrink-0 items-center sm:w-52 lg:w-56"
+        >
+          <span className="relative block h-[93px] w-[900px]">
+            <Image
+              src="/logo5-cropped.png"
+              alt="Emergency Electrical Solution Logo"
+              fill
+              className="object-contain object-left"
+              priority
+            />
+          </span>
+        </Link>
+
+        <nav className="hidden items-center gap-6 lg:gap-8 md:flex">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={`relative py-2 text-lg font-bold transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:rounded-full after:bg-[#C20E1E] after:transition-all ${
+                isActive(link.href)
+                  ? 'text-[var(--brand-night)] after:w-full'
+                  : 'text-slate-600 after:w-0 hover:text-[var(--brand-night)] hover:after:w-full'
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="hidden items-center md:flex">
+          <Link
+            href="/contact"
+            className="rounded-md bg-[#C20E1E] px-5 py-3 text-sm font-black text-white shadow-lg shadow-red-900/15 transition-all hover:-translate-y-0.5 hover:bg-[var(--brand-night)]"
+          >
+            Emergency Call
+          </Link>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => setIsOpen((value) => !value)}
+          className="flex h-11 w-11 items-center justify-center rounded-lg border border-slate-200 text-[var(--brand-night)] transition-colors hover:bg-slate-50 md:hidden"
+          aria-label="Toggle menu"
+          aria-expanded={isOpen}
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      <div
+        className={`absolute left-0 top-full w-full border-b border-slate-200 bg-white shadow-xl shadow-slate-900/10 transition-all duration-300 md:hidden ${
+          isOpen ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-2 opacity-0'
         }`}
       >
-        <div className="px-6 pt-4 pb-10 space-y-1 text-center flex flex-col">
+        <div className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-5">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="block py-4 text-lg font-black text-slate-800 uppercase tracking-tighter border-b border-slate-50 hover:bg-slate-50 transition-colors"
+              className={`rounded-xl px-4 py-3 text-sm font-bold ${
+                isActive(link.href)
+                  ? 'bg-slate-100 text-[var(--brand-night)]'
+                  : 'text-slate-700 hover:bg-slate-50'
+              }`}
             >
               {link.name}
             </Link>
           ))}
-          
-          {/* Mobile CTA Button - Preserved your style but centered for mobile */}
-          <div className="pt-4">
-            <Link
-              href="tel:07000000000"
-              className="w-full bg-[#1B365D] text-white p-5 rounded-none flex justify-center items-center gap-3 font-black text-lg shadow-lg active:bg-[#254a80]"
-            >
-              <PhoneCall size={22} />
-              CALL NOW
-            </Link>
-          </div>
+          <Link
+            href="tel:02039733443"
+            onClick={() => setIsOpen(false)}
+            className="mt-3 flex items-center justify-center gap-2 rounded-xl bg-[#C20E1E] px-5 py-4 text-sm font-black text-white"
+          >
+            <PhoneCall size={18} />
+            Call Emergency Line
+          </Link>
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
 

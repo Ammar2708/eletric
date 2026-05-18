@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Phone } from "lucide-react";
 import { useQuoteModal } from "@/components/context/QuoteModalContext";
-import { div } from "framer-motion/m";
 
 const Work = () => {
   const { setOpen } = useQuoteModal();
@@ -32,7 +31,7 @@ const Work = () => {
           </div>
         </div>
       </div>
-    <section className="relative w-full bg-[#1a1333] py-20 lg:py-0 lg:h-[450px] flex items-center overflow-hidden">
+    <section className="relative w-full bg-[var(--brand-night)] py-20 lg:py-0 lg:h-[450px] flex items-center overflow-hidden">
 
       
       
@@ -89,7 +88,7 @@ const Work = () => {
               {/* Contact Button */}
               <button
                 onClick={() => setOpen(true)}
-                className="bg-[#2E5BFF] text-white px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white hover:text-[#1a1333] transition-all duration-300 shadow-xl shadow-blue-900/20"
+                className="bg-gradient-to-r from-[var(--brand-blue)] to-[var(--brand-blue-light)] text-white px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:from-[var(--brand-amber)] hover:to-[var(--brand-orange)] transition-all duration-300 shadow-xl shadow-blue-900/20"
               >
                 Get a quote now
               </button>
@@ -99,7 +98,7 @@ const Work = () => {
                 href="tel:02039733443" 
                 className="flex items-center gap-4 group hover:opacity-80 transition-opacity"
               >
-                <div className="w-14 h-14 bg-[#FF4D4D] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 bg-gradient-to-br from-[var(--brand-red)] to-[var(--brand-orange)] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                   <Phone size={24} fill="white" className="text-white" />
                 </div>
                 <span className="text-2xl md:text-3xl font-bold tracking-tighter">

@@ -33,6 +33,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --brand-night: #070b18;
+  --brand-navy: #0b1630;
+  --brand-blue: #006dff;
+  --brand-blue-light: #24a8ff;
+  --brand-amber: #ffb000;
+  --brand-orange: #ff5a1f;
+  --brand-red: #ef2b24;
+  --brand-ink: #101827;
 }
 
 @theme inline {
@@ -42,16 +50,13 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
 
+::selection {
+  background: color-mix(in srgb, var(--brand-amber) 35%, white);
+  color: var(--brand-night);
+}

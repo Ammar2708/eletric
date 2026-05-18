@@ -51,24 +51,24 @@ export default function PaySlider() {
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div>
-            <div className="mb-4 flex items-center gap-2 text-xs font-bold uppercase text-blue-600">
-              <span className="h-[2px] w-10 bg-blue-600" />
+            <div className="mb-4 flex items-center gap-2 text-xs font-bold uppercase text-[var(--brand-blue)]">
+              <span className="h-[2px] w-10 bg-[var(--brand-orange)]" />
               Secure Transactions
             </div>
-            <h2 className="text-3xl font-bold leading-tight text-[#1a1333] md:text-4xl">
+            <h2 className="text-3xl font-bold leading-tight text-[var(--brand-night)] md:text-4xl">
               Accepted payment methods
             </h2>
-            <div className="mt-4 h-1 w-16 bg-blue-600" />
+            <div className="mt-4 h-1 w-16 bg-gradient-to-r from-[var(--brand-blue)] to-[var(--brand-amber)]" />
           </div>
 
-          <div className="flex w-full items-center gap-3 rounded-full border border-slate-100 bg-slate-50 px-5 py-3 text-sm font-bold text-[#1B365D] shadow-sm md:w-auto">
-            <Lock size={18} className="text-blue-600" />
+          <div className="flex w-full items-center gap-3 rounded-full border border-[var(--brand-blue)]/10 bg-slate-50 px-5 py-3 text-sm font-bold text-[var(--brand-navy)] shadow-sm md:w-auto">
+            <Lock size={18} className="text-[var(--brand-blue)]" />
             Payments processed securely after completion
           </div>
         </div>
 
         <div className="grid gap-5 lg:grid-cols-[1fr_320px]">
-          <div className="overflow-hidden rounded-[1.5rem] border border-slate-100 bg-slate-50 p-3 shadow-xl shadow-blue-100/40 sm:p-5">
+          <div className="overflow-hidden rounded-[1.5rem] border border-slate-100 bg-slate-50 p-3 shadow-xl shadow-orange-100/50 sm:p-5">
             <div className="overflow-hidden rounded-[1.25rem] bg-white shadow-sm">
               <div
                 className="flex transition-transform duration-700 ease-in-out"
@@ -80,19 +80,19 @@ export default function PaySlider() {
                   return (
                     <article
                       key={method.name}
-                      className="grid min-h-[220px] w-full flex-shrink-0 gap-6 p-5 text-[#0B1221] sm:min-h-[250px] sm:p-7 md:grid-cols-[0.9fr_1.1fr] md:items-center"
+                      className="grid min-h-[220px] w-full flex-shrink-0 gap-6 p-5 text-[var(--brand-night)] sm:min-h-[250px] sm:p-7 md:grid-cols-[0.9fr_1.1fr] md:items-center"
                     >
-                      <div className="flex h-36 items-center justify-center rounded-[1.25rem] bg-[#1B365D] text-white shadow-lg shadow-blue-100 sm:h-44">
+                      <div className="flex h-36 items-center justify-center rounded-[1.25rem] bg-gradient-to-br from-[var(--brand-navy)] to-[var(--brand-blue)] text-white shadow-lg shadow-blue-100 sm:h-44">
                         <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/10">
                           <Icon size={38} />
                         </div>
                       </div>
 
                       <div className="flex flex-col justify-center">
-                        <p className="mb-3 text-xs font-black uppercase text-blue-600">
+                        <p className="mb-3 text-xs font-black uppercase text-[var(--brand-orange)]">
                           Payment Method
                         </p>
-                        <h3 className="text-3xl font-black leading-none text-[#1a1333] sm:text-4xl">
+                        <h3 className="text-3xl font-black leading-none text-[var(--brand-night)] sm:text-4xl">
                           {method.name}
                         </h3>
                         <p className="mt-3 max-w-sm text-sm font-semibold leading-relaxed text-slate-500">
@@ -100,7 +100,7 @@ export default function PaySlider() {
                         </p>
 
                         <div className="mt-5 flex flex-wrap gap-3">
-                          <span className="rounded-full bg-blue-50 px-4 py-2 text-xs font-bold text-blue-600">
+                          <span className="rounded-full bg-[var(--brand-blue)]/10 px-4 py-2 text-xs font-bold text-[var(--brand-blue)]">
                             Accepted
                           </span>
                           <span className="rounded-full bg-slate-100 px-4 py-2 text-xs font-bold text-slate-500">
@@ -123,7 +123,7 @@ export default function PaySlider() {
                     onClick={() => setCurrent(i)}
                     aria-label={`Show ${method.name}`}
                     className={`h-2 rounded-full transition-all duration-300 ${
-                      current === i ? "w-9 bg-blue-600" : "w-2 bg-slate-300 hover:bg-slate-400"
+                      current === i ? "w-9 bg-[var(--brand-orange)]" : "w-2 bg-slate-300 hover:bg-slate-400"
                     }`}
                   />
                 ))}
@@ -134,7 +134,7 @@ export default function PaySlider() {
                   type="button"
                   onClick={goToPrevious}
                   aria-label="Show previous payment method"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-[#1B365D] transition-all hover:border-blue-600 hover:text-blue-600"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-[var(--brand-navy)] transition-all hover:border-[var(--brand-orange)] hover:text-[var(--brand-orange)]"
                 >
                   <ChevronLeft size={20} />
                 </button>
@@ -142,7 +142,7 @@ export default function PaySlider() {
                   type="button"
                   onClick={goToNext}
                   aria-label="Show next payment method"
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg shadow-blue-100 transition-all hover:bg-[#1B365D]"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--brand-blue)] text-white shadow-lg shadow-blue-100 transition-all hover:bg-[var(--brand-orange)]"
                 >
                   <ChevronRight size={20} />
                 </button>
@@ -150,9 +150,9 @@ export default function PaySlider() {
             </div>
           </div>
 
-          <div className="rounded-[1.5rem] bg-[#1a1333] p-5 text-white shadow-xl shadow-slate-200/70">
+          <div className="rounded-[1.5rem] bg-[var(--brand-night)] p-5 text-white shadow-xl shadow-slate-200/70">
             <div className="mb-5 flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[var(--brand-amber)] to-[var(--brand-orange)]">
                 <ActiveIcon size={24} />
               </div>
               <div>
@@ -169,8 +169,8 @@ export default function PaySlider() {
                   onClick={() => setCurrent(i)}
                   className={`min-h-14 rounded-2xl border px-3 py-2.5 text-left text-xs font-bold transition-all ${
                     current === i
-                      ? "border-blue-500 bg-blue-600 text-white"
-                      : "border-white/10 bg-white/5 text-white/70 hover:border-blue-400 hover:text-white"
+                      ? "border-[var(--brand-amber)] bg-[var(--brand-blue)] text-white"
+                      : "border-white/10 bg-white/5 text-white/70 hover:border-[var(--brand-amber)] hover:text-white"
                   }`}
                 >
                   {method.name}
@@ -179,7 +179,7 @@ export default function PaySlider() {
             </div>
 
             <div className="mt-5 flex items-center gap-3 border-t border-white/10 pt-5 text-sm text-white/60">
-              <ShieldCheck size={20} className="shrink-0 text-blue-400" />
+              <ShieldCheck size={20} className="shrink-0 text-[var(--brand-amber)]" />
               Secure options for call-outs, project work, and invoices.
             </div>
           </div>

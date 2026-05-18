@@ -34,6 +34,17 @@ const fadeUpVariant: Variants = {
   }
 };
 
+const highlightNiceic = (text: string) =>
+  text.split(/(NICEIC)/gi).map((part, index) =>
+    part.toLowerCase() === 'niceic' ? (
+      <span key={`${part}-${index}`} className="text-[#C20E1E]">
+        {part}
+      </span>
+    ) : (
+      part
+    )
+  );
+
 export default function ServiceDetail({ 
   params 
 }: { 
@@ -85,8 +96,8 @@ export default function ServiceDetail({
                 {service.title}
               </h1>
               <p className="text-xl md:text-2xl text-zinc-500 max-w-2xl leading-relaxed">
-                {service.description || 
-                  "High-specification engineering solutions designed for safety, longevity, and efficiency."}
+                {highlightNiceic(service.description ||
+                  "High-specification engineering solutions designed for safety, longevity, and efficiency.")}
               </p>
             </motion.section>
 
@@ -166,7 +177,9 @@ export default function ServiceDetail({
                     <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-blue-500 shrink-0">
                       <CheckCircle2 size={16} />
                     </div>
-                    {feature}
+                    <span className={feature.toLowerCase().includes('niceic') ? 'text-[#C20E1E]' : undefined}>
+                      {highlightNiceic(feature)}
+                    </span>
                   </motion.li>
                 ))}
               </ul>

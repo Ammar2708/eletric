@@ -21,7 +21,7 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1a1333] mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--brand-night)] mb-4">
               Comprehensive electrical <br className="hidden md:block" /> services
             </h2>
             <motion.div
@@ -29,7 +29,7 @@ const Services = () => {
               whileInView={{ width: 60 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="h-1 bg-blue-600"
+              className="h-1 bg-gradient-to-r from-[var(--brand-blue)] to-[var(--brand-amber)]"
             />
           </motion.div>
 
@@ -40,7 +40,7 @@ const Services = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               viewport={{ once: true }}
-              className="flex items-center gap-3 bg-blue-600 text-white px-6 py-3 rounded-full font-bold shadow-lg shadow-blue-100 text-sm"
+              className="flex items-center gap-3 bg-gradient-to-r from-[var(--brand-blue)] to-[var(--brand-blue-light)] text-white px-6 py-3 rounded-full font-bold shadow-lg shadow-blue-100 text-sm"
             >
               VIEW ALL SERVICES <Plus size={18} />
             </motion.button>
@@ -94,10 +94,10 @@ const Services = () => {
                   </div>
 
                   {/* BACK */}
-                  <div className="absolute inset-0 backface-hidden rotate-y-180 bg-[#0a0a0f] rounded-[2.5rem] flex flex-col justify-center items-center p-8 text-center shadow-2xl">
+                  <div className="absolute inset-0 backface-hidden rotate-y-180 bg-[var(--brand-night)] rounded-[2.5rem] flex flex-col justify-center items-center p-8 text-center shadow-2xl">
                     
                     {/* Centered Blue Icon */}
-                    <div className="w-16 h-16 rounded-full flex items-center justify-center bg-blue-600 mb-6 shadow-xl shadow-blue-600/20 text-white">
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center bg-gradient-to-br from-[var(--brand-amber)] to-[var(--brand-orange)] mb-6 shadow-xl shadow-orange-600/20 text-white">
                       <service.icon size={28} />
                     </div>
 
